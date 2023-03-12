@@ -1,21 +1,17 @@
-#include <iostream>
-#include <string>
-#include "Contact.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+# include <iostream>
+# include <string>
+# include "Contact.hpp"
 
 class PhoneBook
 {
-    private:
-        /* data */
     public:
-    _   Contact  listContact[8];
-        PhoneBook(/* args */);
+        Contact  listContact[8];
+        PhoneBook();
         ~PhoneBook();
+
+    private:
 };
 
-PhoneBook::PhoneBook(/* args */)
-{
-}
-
-PhoneBook::~PhoneBook()
-{
-}
+#endif

@@ -1,67 +1,79 @@
-#include <string>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/12 12:12:06 by cdutel-l          #+#    #+#             */
+/*   Updated: 2023/03/12 12:12:09 by cdutel-l         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "Contact.hpp"
+
+/// BUILDERS ///
+
+Contact::Contact()	:	firstName(""), lastName(""), nickName(""), phoneNumber(""), darkestSecret("")
+{
+}
+
+Contact::~Contact()
+{
+}
 
 /// SET_INFO_CONTACT ///
 
 void	Contact::setFirstName(std::string firstName)
 {
-	Contact	contacts;
-	contacts.first_name = firstName;
+	this->firstName = firstName;
 }
 
 void	Contact::setLastName(std::string lastName)
 {
-	Contact	contacts;
-	contacts.last_name = lastName;
+	this->lastName = lastName;
 }
 
-void	Contact::setFirstName(std::string nickName)
+void	Contact::setNickName(std::string nickName)
 {
-	Contact	contacts;
-	contacts.nickname = nickName;
+	this->nickName = nickName;
 }
 
-void	Contact::setPhoneNb(std::string phone_nb)
+void	Contact::setPhoneNb(std::string phoneNb)
 {
-	Contact	contacts;
-	contacts.phone_number = phone_nb;
+	this->phoneNumber = phoneNb;
 }
 
-void	Contact::setDarkestSecret(std::string dark_secret)
+void	Contact::setDarkestSecret(std::string darkSecret)
 {
-	Contact	contacts;
-	contacts.darkest_secret = dark_secret;
+	this->darkestSecret = darkSecret;
 }
 
 
 /// GET_INFO_CONTACT ///
 
-std::string	Contact::getFirstName(void)
+std::string	Contact::getFirstName(void) const
 {
-	Contact	contacts;
-	return (contacts.first_name);
+	return (this->firstName);
 }
 
-std::string	Contact::getLastName(void)
+std::string	Contact::getLastName(void) const
 {
-	Contact	contacts;
-	return (contacts.last_name);
+	return (this->lastName);
 }
 
-std::string	Contact::getFirstName(void)
+std::string	Contact::getNickName(void) const
 {
-	Contact	contacts;
-	return (contacts.nickname);
+	return (this->nickName);
 }
 
-std::string	Contact::getPhoneNb(void)
+std::string	Contact::getPhoneNb(void) const
 {
-	Contact	contacts;
-	return (contacts.phone_number);
+	return (this->phoneNumber);
 }
 
-std::string	Contact::getDarkestSecret(void)
+std::string	Contact::getDarkestSecret(void) const
 {
-	Contact	contacts;
-	return (contacts.darkest_secret);
+	return (this->darkestSecret);
 }
