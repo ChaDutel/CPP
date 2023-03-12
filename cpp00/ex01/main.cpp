@@ -6,51 +6,43 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:46:34 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/12 14:24:09 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/12 15:35:06 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-void	searchInformation(Contact choosingContact)
-{
-    std::cout << "First name : " << choosingContact.getFirstName() << std::endl;
-	std::cout << "Last name : " << choosingContact.getLastName() << std::endl;
-	std::cout << "Nickname : " << choosingContact.getNickName() << std::endl;
-	std::cout << "Phone number: " << choosingContact.getPhoneNb() << std::endl;
-	std::cout << "Darkest secret: " << choosingContact.getDarkestSecret() << std::endl;
-}
-
-// bool isNotABCD(char c)
+// void	addSeparator(std::string info)
 // {
-//     return !((c == 'A') || (c == 'B') || (c == 'C') || (c == 'D'));
+// 	int	size;
+
+// 	size = info.size();
+// 	if (size > 10)
+// 		size = 10;
+// 	size -= 1;
+// 	for (int i = 0; info[i]; i++)
+// 	{
+// 		std::cout << info[i];
+// 		if (i != size)
+// 			std::cout << " | ";
+// 	}
+// 	std::cout << std::endl;
 // }
 
-// bool check_valid_character(std::string const& str)
+// void	searchInformation(Contact choosingContact)
 // {
-//    return (std::find_if(str.begin(), str.end(), isNotABCD) == str.end());
+//     std::cout << "First name : ";
+// 	addSeparator(choosingContact.getFirstName());
+// 	std::cout << "Last name : ";
+// 	addSeparator(choosingContact.getLastName());
+// 	std::cout << "Nickname : ";
+// 	addSeparator(choosingContact.getNickName());
+// 	std::cout << "Phone number: ";
+// 	addSeparator(choosingContact.getPhoneNb());
+// 	std::cout << "Darkest secret: ";
+// 	addSeparator(choosingContact.getDarkestSecret());
 // }
-
-// int main()
-// {
-//    string strand1;
-
-//    cout << "Enter String 1:\n";
-//    while ( cin >> strand1 && !isValidInput(strand1) )
-//    {
-//       cout << "Invalid Input";
-//       system("cls");
-//       cout << "Enter String 1:\n";
-//    }
-//    cout << "ok";
-// }
-
-//  while (info == "\n" || info == "")
-//     {
-//         std::cout << "Error : Enter a valid comand" << std::endl;
-//         std::getline(std::cin, info);
-//     }
 
 std::string	checkSizeInfo(std::string info)
 {
@@ -62,6 +54,41 @@ std::string	checkSizeInfo(std::string info)
 		for (int i = 10; info[i]; i++)
 			info[i] = '\0';
 		return (info);
+	}
+}
+
+// // void	addSpaceAndPipe(Contact choosingContact)
+// {
+// 	for (int i = choosingContact.size; i <= 10; i++)
+// 		std::cout << " ";
+// 	std::cout << '|';
+// }
+void	addSpaceAndPipe(std::string info)
+{
+	for (int i = info.size(); i < 10; i++)
+		std::cout << " ";
+	std::cout << '|';
+}
+
+void	searchInformation(Contact choosingContact)
+{
+    std::cout << "First name : " << choosingContact.getFirstName() << std::endl;
+	std::cout << "Last name : " << choosingContact.getLastName() << std::endl;
+	std::cout << "Nickname : " << choosingContact.getNickName() << std::endl;
+	std::cout << "Phone number: " << choosingContact.getPhoneNb() << std::endl;
+	std::cout << "Darkest secret: " << choosingContact.getDarkestSecret() << std::endl;
+}
+
+
+void	showMiniList(PhoneBook contacts)
+{
+	for (int i = 0; i < 8; i++)
+	{
+		std::cout << "[" << i << "]|" << checkSizeInfo(contacts.listContact[i].getFirstName());
+		addSpaceAndPipe(contacts.listContact[i].getFirstName());
+		std::cout << checkSizeInfo(contacts.listContact[i].getLastName());
+		addSpaceAndPipe(contacts.listContact[i].getLastName());
+		std::cout << checkSizeInfo(contacts.listContact[i].getNickName()) << std::endl;
 	}
 }
 
@@ -93,35 +120,35 @@ void    addInformations(Contact *newContact)
     std::cout << "Enter a first name: ";
     std::getline(std::cin, info);
 	info = checkValidInfo(info, "Enter a first name: ");
-	info = checkSizeInfo(info);
+	// info = checkSizeInfo(info);
     newContact->setFirstName(info);
     std::cout << newContact->getFirstName() << std::endl;
 
     std::cout << "Enter a last name: ";
     std::getline(std::cin, info);
 	info = checkValidInfo(info, "Enter a last name: ");
-	info = checkSizeInfo(info);
+	// info = checkSizeInfo(info);
     newContact->setLastName(info);
     std::cout << newContact->getLastName() << std::endl;
 
     std::cout << "Enter a nickname: ";
     std::getline(std::cin, info);
 	info = checkValidInfo(info, "Enter a nickname: ");
-	info = checkSizeInfo(info);
+	// info = checkSizeInfo(info);
     newContact->setNickName(info);
     std::cout << newContact->getNickName() << std::endl;
 
     std::cout << "Enter a phone number: ";
     std::getline(std::cin, info);
 	info = checkValidInfo(info, "Enter a phone number: ");
-	info = checkSizeInfo(info);
+	// info = checkSizeInfo(info);
     newContact->setPhoneNb(info);
     std::cout << newContact->getPhoneNb() << std::endl;
 
     std::cout << "Enter a darkest secret: ";
     std::getline(std::cin, info);
     info = checkValidInfo(info, "Enter a darkest secret: ");
-	info = checkSizeInfo(info);
+	// info = checkSizeInfo(info);
     newContact->setDarkestSecret(info);
     std::cout << newContact->getDarkestSecret() << std::endl;
 }
@@ -155,6 +182,7 @@ int main()
         }
         else if (test == "SEARCH")
 		{
+			showMiniList(phoneContacts);
             std::cout << "Enter an index of contact between 0 and 7\n";
    			std::getline(std::cin, test);
 			while (std::stoi(test) < 0 && std::stoi(test) > 7)
