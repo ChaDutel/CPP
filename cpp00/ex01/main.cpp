@@ -6,43 +6,12 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:46:34 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/12 15:35:06 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/12 17:39:08 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
-
-// void	addSeparator(std::string info)
-// {
-// 	int	size;
-
-// 	size = info.size();
-// 	if (size > 10)
-// 		size = 10;
-// 	size -= 1;
-// 	for (int i = 0; info[i]; i++)
-// 	{
-// 		std::cout << info[i];
-// 		if (i != size)
-// 			std::cout << " | ";
-// 	}
-// 	std::cout << std::endl;
-// }
-
-// void	searchInformation(Contact choosingContact)
-// {
-//     std::cout << "First name : ";
-// 	addSeparator(choosingContact.getFirstName());
-// 	std::cout << "Last name : ";
-// 	addSeparator(choosingContact.getLastName());
-// 	std::cout << "Nickname : ";
-// 	addSeparator(choosingContact.getNickName());
-// 	std::cout << "Phone number: ";
-// 	addSeparator(choosingContact.getPhoneNb());
-// 	std::cout << "Darkest secret: ";
-// 	addSeparator(choosingContact.getDarkestSecret());
-// }
 
 std::string	checkSizeInfo(std::string info)
 {
@@ -57,12 +26,6 @@ std::string	checkSizeInfo(std::string info)
 	}
 }
 
-// // void	addSpaceAndPipe(Contact choosingContact)
-// {
-// 	for (int i = choosingContact.size; i <= 10; i++)
-// 		std::cout << " ";
-// 	std::cout << '|';
-// }
 void	addSpaceAndPipe(std::string info)
 {
 	for (int i = info.size(); i < 10; i++)
@@ -153,12 +116,6 @@ void    addInformations(Contact *newContact)
     std::cout << newContact->getDarkestSecret() << std::endl;
 }
 
-// void    checkNbContacts(PhoneBook phoneContact, int i)
-// {
-//     //if (phoneContact.listContact[i].getFirstName() == "")
-//       addInformations(phoneContact.listContact[i]);
-// }
-
 int main()
 {
     std::string  test;
@@ -185,25 +142,16 @@ int main()
 			showMiniList(phoneContacts);
             std::cout << "Enter an index of contact between 0 and 7\n";
    			std::getline(std::cin, test);
-			while (std::stoi(test) < 0 && std::stoi(test) > 7)
+			while (!std::cin.eof() && (test.size() != 1 || test[0] < '0' || test[0] > '7'))
+			{
+				std::cout << "Error : Enter a valid index\n";
    				std::getline(std::cin, test);
+			}
+			if (std::cin.eof())
+				return (0);
 			searchInformation(phoneContacts.listContact[std::stoi(test)]);
 		}
         std::cout << "Enter a command like : ADD, SEARCH, EXIT\n";
         std::getline(std::cin, test);
     }
 }
-// int main()
-// {
-// 	std::string  test;
-// 	Contact     contactTest;
-
-// 	std::cin >> test;
-// 	while (test != "EXIT")
-// 	{
-// 		if (test == "ADD")
-// 			add_informations(contactTest);
-// 		else if (test == "SEARCH")
-// 		std::cin >> test;
-// 	}
-// }
