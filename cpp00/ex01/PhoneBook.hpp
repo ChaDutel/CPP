@@ -1,12 +1,16 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 # include <iostream>
+#include <iomanip>
 # include <string>
 # include "Contact.hpp"
 
 class PhoneBook
 {
 	public:
+		PhoneBook();
+		~PhoneBook();
+
 		Contact  listContact[8];
 
 		/// ADD ///
@@ -16,17 +20,15 @@ class PhoneBook
 		void			searchInformation(Contact choosingContact);
 		void			showMiniList(PhoneBook contacts);
 
-		PhoneBook();
-		~PhoneBook();
-
 	private:
 		/// DISPLAY SEARCH ///
-		void			addSpaceAndPipe(std::string info);
-		std::string		checkSizeInfo(std::string info);
+		void			_addSpaceAndPipe(std::string info);
+		std::string		_checkSizeInfo(std::string info);
 
 		/// ADD ///
-		std::string		checkValidInfo(std::string info, std::string typeOfInfo);
-		int				checkValidCharacter(std::string info);
+		std::string		_checkValidInfo(std::string info, std::string typeOfInfo);
+		int				_checkValidCharacter(std::string info);
+		int				_checkValidPhoneNumber(std::string info);
 };
 
 #endif

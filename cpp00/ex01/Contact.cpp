@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 12:12:06 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/12 12:12:09 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/13 14:25:40 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /// BUILDERS ///
 
-Contact::Contact()	:	firstName(""), lastName(""), nickName(""), phoneNumber(""), darkestSecret("")
+Contact::Contact()	:	_firstName(""), _lastName(""), _nickName(""), _phoneNumber(""), _darkestSecret("")
 {
 }
 
@@ -27,27 +27,27 @@ Contact::~Contact()
 
 void	Contact::setFirstName(std::string firstName)
 {
-	this->firstName = firstName;
+	this->_firstName = firstName;
 }
 
 void	Contact::setLastName(std::string lastName)
 {
-	this->lastName = lastName;
+	this->_lastName = lastName;
 }
 
 void	Contact::setNickName(std::string nickName)
 {
-	this->nickName = nickName;
+	this->_nickName = nickName;
 }
 
 void	Contact::setPhoneNb(std::string phoneNb)
 {
-	this->phoneNumber = phoneNb;
+	this->_phoneNumber = phoneNb;
 }
 
 void	Contact::setDarkestSecret(std::string darkSecret)
 {
-	this->darkestSecret = darkSecret;
+	this->_darkestSecret = darkSecret;
 }
 
 
@@ -55,25 +55,25 @@ void	Contact::setDarkestSecret(std::string darkSecret)
 
 std::string	Contact::getFirstName(void) const
 {
-	return (this->firstName);
+	return (this->_firstName);
 }
 
 std::string	Contact::getLastName(void) const
 {
-	return (this->lastName);
+	return (this->_lastName);
 }
 
 std::string	Contact::getNickName(void) const
 {
-	return (this->nickName);
+	return (this->_nickName);
 }
 
 std::string	Contact::getPhoneNb(void) const
 {
-	return (this->phoneNumber);
+	return (this->_phoneNumber);
 }
 
 std::string	Contact::getDarkestSecret(void) const
 {
-	return (this->darkestSecret);
+	return (this->_darkestSecret);
 }
