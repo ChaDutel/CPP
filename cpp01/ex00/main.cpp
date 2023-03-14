@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:23:37 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/13 17:59:00 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/14 15:30:50 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	main()
 {
-	Zombie	zombie;
+	Zombie	zombie = Zombie("Yvan");
+	Zombie*	newZombie = zombie.getNewZombie("Tim");
 	
-	zombie.setName("Yvan");
-	zombie.announce();
+	zombie.randomChump("Max");
+	// zombie.setName("");
+	// zombie.announce();
+	delete newZombie;
 }
