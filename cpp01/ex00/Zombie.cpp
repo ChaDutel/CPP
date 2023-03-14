@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:22:14 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/14 15:41:19 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/14 18:14:06 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 Zombie::Zombie(std::string name)
 {
 	Zombie::setName(name);
-	Zombie::announce();
+	// Zombie::announce();
 }
 
 Zombie::~Zombie()
