@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 17:22:14 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/15 11:29:07 by cdutel-l         ###   ########lyon.fr   */
+/*   Created: 2023/03/15 11:30:38 by cdutel-l          #+#    #+#             */
+/*   Updated: 2023/03/15 11:58:05 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-/// BUILDERS ///
-
-Zombie::Zombie(std::string name)
+int	main()
 {
-	Zombie::setName(name);
-}
-
-Zombie::~Zombie()
-{
-	std::cout << this->_name << " died" << std::endl;
-}
-
-std::string Zombie::getName(void)
-{
-	return (this->_name);
-}
-
-void	Zombie::setName(std::string name)
-{
-	this->_name = name;
-}
-
-void	Zombie::announce(void) const
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	int	N = 4;
+	Zombie* allZombies = zombieHorde(N, "Boys");
+	
+	if (N < 1)
+		return (0);
+	for (int i = 0; i != 4; i++)
+		allZombies->announce();
+	delete [] allZombies;
+	return (0);
 }
