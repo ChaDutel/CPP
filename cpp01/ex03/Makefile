@@ -1,6 +1,6 @@
 #update on every project
 NAME := HumanViolence
-LST_SRC := main HumanA Weapon
+LST_SRC := main HumanA HumanB Weapon
 #update to match c or cpp
 CC := c++
 FILE_EXT := .cpp
