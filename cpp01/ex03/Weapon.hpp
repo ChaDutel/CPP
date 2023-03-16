@@ -3,23 +3,18 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
-// # include "HumanA.hpp"
 
 class Weapon
 {
-    public:
-        Weapon(std::string nameType);
-        ~Weapon();
+	public:
+		Weapon(std::string nameType);
+		~Weapon();
 
-        // const std::string        getType();
-        const std::string&        getType() const;
-        void                    setType(std::string newType);
-        // • Une fonction membre getType() retournant une référence constante sur type.
-    // • Une fonction membre setType() qui attribue à type la nouvelle valeur passée en
-    // paramètre.
+		const std::string&	getType() const;
+		void				setType(std::string newType);
 
-    private:
-        std::string type;
+	private:
+		std::string type;
 };
 
 #endif

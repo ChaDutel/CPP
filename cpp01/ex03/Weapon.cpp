@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:24:44 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/15 17:45:48 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/16 11:14:28 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Weapon::~Weapon()
 {
 }
 
-const std::string&    Weapon::getType() const
+const std::string&  Weapon::getType() const
 {
     return (this->type);
 }
