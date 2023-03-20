@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:49:50 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/17 17:26:50 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/20 12:33:48 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void	manageFiles(char **argv)
 	firstFile.open(tmpargv.c_str(), std::ios::in);
 	if (!firstFile || firstFile.fail())
 	{
-		std::cout << "File1 not created!" << std::endl;
+		std::cout << "Fail to open file!" << std::endl;
 		return ;
 	}
 	else
 	{
-		std::cout << "File1 created successfully!" << std::endl;
+		std::cout << "File opened successfully!" << std::endl;
 	}
 	
 	std::fstream	newtFile;
@@ -56,13 +56,13 @@ void	manageFiles(char **argv)
 	newtFile.open(myNewFile.c_str(), std::ios::out);
 	if (!newtFile || newtFile.fail())
 	{
-		std::cout << "File2 not created!" << std::endl;
+		std::cout << "Fail to create file!" << std::endl;
 		firstFile.close();
 		return ;
 	}
 	else
 	{
-		std::cout << "File2 created successfully!" << std::endl;
+		std::cout << "The replace file created successfully!" << std::endl;
 		std::string line;
 		std::string str;
 		while (firstFile.good())

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:22:14 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/15 11:29:07 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/20 11:40:59 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 /// BUILDERS ///
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(std::string name): _name(name)
 {
-	Zombie::setName(name);
 }
 
 Zombie::~Zombie()
@@ -24,14 +23,9 @@ Zombie::~Zombie()
 	std::cout << this->_name << " died" << std::endl;
 }
 
-std::string Zombie::getName(void)
+std::string Zombie::getName(void) const
 {
 	return (this->_name);
-}
-
-void	Zombie::setName(std::string name)
-{
-	this->_name = name;
 }
 
 void	Zombie::announce(void) const

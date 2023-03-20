@@ -11,8 +11,7 @@ class Zombie
 		~Zombie();
 
 		void 		announce(void) const;
-		void		setName(std::string name);
-		std::string getName(void);
+		std::string getName(void) const;
 
 	private :
 		std::string	_name;

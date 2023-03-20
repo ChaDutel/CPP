@@ -13,7 +13,7 @@ class    HumanA
 
         Weapon          &weapon;
         void            attack();
-        std::string     getName();
+        std::string     getName() const;
         void            setName(std::string name);
         //<name> attacks with their <weapon type>
 
