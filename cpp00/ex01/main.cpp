@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:46:34 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/13 14:31:45 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/20 11:30:01 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int main()
 {
-	std::string		info;
-	Contact			newContact;
-	PhoneBook		phoneContacts;
-	int				i;
+	std::string	info;
+	Contact		newContact;
+	PhoneBook	phoneContacts;
+	int			i;
 
 	std::cout << "Enter a command like : ADD, SEARCH, EXIT\n";
 	std::getline(std::cin, info);
@@ -29,7 +29,7 @@ int main()
 			break;
 		else if (info == "ADD")
 		{
-			phoneContacts.addInformations(&phoneContacts.listContact[i]);
+			phoneContacts.addInformations(i);
 			i++;
 			if (i > 7)
 				i = 0;
@@ -46,7 +46,7 @@ int main()
 			}
 			if (std::cin.eof())
 				return (0);
-			phoneContacts.searchInformation(phoneContacts.listContact[info[0] - 48]);
+			phoneContacts.searchInformation(info[0] - 48);
 		}
 		std::cout << "Enter a command like : ADD, SEARCH, EXIT\n";
 		std::getline(std::cin, info);

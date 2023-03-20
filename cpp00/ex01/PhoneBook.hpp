@@ -11,24 +11,24 @@ class PhoneBook
 		PhoneBook();
 		~PhoneBook();
 
-		Contact  listContact[8];
-
 		/// ADD ///
-		void			addInformations(Contact *newContact);
+		void		addInformations(int i);
 
 		/// DISPLAY SEARCH ///
-		void			searchInformation(Contact choosingContact);
-		void			showMiniList(PhoneBook contacts);
+		void		searchInformation(int i) const;
+		void		showMiniList(PhoneBook contacts) const;
 
 	private:
+		Contact  _listContact[8];
+
 		/// DISPLAY SEARCH ///
-		void			_addSpaceAndPipe(std::string info);
-		std::string		_checkSizeInfo(std::string info);
+		void		_addSpaceAndPipe(std::string info) const;
+		std::string	_checkSizeInfo(std::string info) const;
 
 		/// ADD ///
-		std::string		_checkValidInfo(std::string info, std::string typeOfInfo);
-		int				_checkValidCharacter(std::string info);
-		int				_checkValidPhoneNumber(std::string info);
+		std::string	_checkValidInfo(std::string info, std::string typeOfInfo);
+		int			_checkValidCharacter(std::string info);
+		int			_checkValidPhoneNumber(std::string info);
 };
 
 #endif

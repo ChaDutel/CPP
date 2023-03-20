@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 12:11:40 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/13 15:50:06 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/20 11:31:22 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ PhoneBook::~PhoneBook()
 
 /// DISPLAY SEARCH ///
 
-std::string	PhoneBook::_checkSizeInfo(std::string info)
+std::string    PhoneBook::_checkSizeInfo(std::string info) const
 {
 	if (info.size() <= 10)
 		return (info);
@@ -38,34 +38,34 @@ std::string	PhoneBook::_checkSizeInfo(std::string info)
 	}
 }
 
-void	PhoneBook::_addSpaceAndPipe(std::string info)
+void    PhoneBook::_addSpaceAndPipe(std::string info) const
 {
 	for (int i = info.size(); i < 10; i++)
 		std::cout << " ";
 	std::cout << '|';
 }
 
-void	PhoneBook::searchInformation(Contact choosingContact)
+void    PhoneBook::searchInformation(int i) const
 {
 	std::cout << std::endl;
-	std::cout << "First name : " << choosingContact.getFirstName() << std::endl;
-	std::cout << "Last name : " << choosingContact.getLastName() << std::endl;
-	std::cout << "Nickname : " << choosingContact.getNickName() << std::endl;
-	std::cout << "Phone number: " << choosingContact.getPhoneNb() << std::endl;
-	std::cout << "Darkest secret: " << choosingContact.getDarkestSecret() << std::endl;
+	std::cout << "First name : " << this->_listContact[i].getFirstName() << std::endl;
+	std::cout << "Last name : " << this->_listContact[i].getLastName() << std::endl;
+	std::cout << "Nickname : " << this->_listContact[i].getNickName() << std::endl;
+	std::cout << "Phone number: " << this->_listContact[i].getPhoneNb() << std::endl;
+	std::cout << "Darkest secret: " << this->_listContact[i].getDarkestSecret() << std::endl;
 	std::cout << std::endl;
 }
 
-void	PhoneBook::showMiniList(PhoneBook contacts)
+void    PhoneBook::showMiniList(PhoneBook contacts) const
 {
 	std::cout << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << "       ";
 		std::cout << "[" << i << "]";
-		std::cout << "|" << std::setw(10) << _checkSizeInfo(contacts.listContact[i].getFirstName());
-		std::cout << "|" << std::setw(10) << _checkSizeInfo(contacts.listContact[i].getLastName());
-		std::cout << "|" << std::setw(10) << _checkSizeInfo(contacts.listContact[i].getNickName()) << std::endl;
+		std::cout << "|" << std::setw(10) << _checkSizeInfo(contacts._listContact[i].getFirstName());
+		std::cout << "|" << std::setw(10) << _checkSizeInfo(contacts._listContact[i].getLastName());
+		std::cout << "|" << std::setw(10) << _checkSizeInfo(contacts._listContact[i].getNickName()) << std::endl;
 	}
 	std::cout << std::endl;
 }
@@ -136,7 +136,7 @@ std::string	PhoneBook::_checkValidInfo(std::string info, std::string typeOfInfo)
 	return (info);
 }
 
-void    PhoneBook::addInformations(Contact *newContact)
+void    PhoneBook::addInformations(int i)
 {
 	std::string info;
 
@@ -144,26 +144,26 @@ void    PhoneBook::addInformations(Contact *newContact)
 	std::cout << "Enter a first name: ";
 	std::getline(std::cin, info);
 	info = _checkValidInfo(info, "Enter a first name: ");
-	newContact->setFirstName(info);
+	this->_listContact[i].setFirstName(info);
 
 	std::cout << "Enter a last name: ";
 	std::getline(std::cin, info);
 	info = _checkValidInfo(info, "Enter a last name: ");
-	newContact->setLastName(info);
+	this->_listContact[i].setLastName(info);
 
 	std::cout << "Enter a nickname: ";
 	std::getline(std::cin, info);
 	info = _checkValidInfo(info, "Enter a nickname: ");
-	newContact->setNickName(info);
+	this->_listContact[i].setNickName(info);
 
 	std::cout << "Enter a phone number: ";
 	std::getline(std::cin, info);
 	info = _checkValidInfo(info, "Enter a phone number: ");
-	newContact->setPhoneNb(info);
+	this->_listContact[i].setPhoneNb(info);
 
 	std::cout << "Enter a darkest secret: ";
 	std::getline(std::cin, info);
 	info = _checkValidInfo(info, "Enter a darkest secret: ");
-	newContact->setDarkestSecret(info);
+	this->_listContact[i].setDarkestSecret(info);
 	std::cout << std::endl;
 }
