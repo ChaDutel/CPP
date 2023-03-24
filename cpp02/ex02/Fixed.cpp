@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:25:09 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/24 17:26:35 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/24 18:01:14 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,97 @@ Fixed& Fixed::operator=(const Fixed& other)
 	return (*this);
 }
 
-
-
 std::ostream& operator<<(std::ostream &out, const Fixed& other)
 {
 	out << other.toFloat();
 	return (out);
 }
+
+// Arithemtics //
+
+Fixed Fixed::operator+(const Fixed& other)
+{
+	return (Fixed (this->_nb + other.getRawBits()));
+}
+
+Fixed Fixed::operator-(const Fixed& other)
+{
+	return (Fixed (this->_nb - other.getRawBits()));
+}
+
+Fixed Fixed::operator*(const Fixed& other)
+{
+	return (Fixed (this->_nb * other.getRawBits()));
+}
+
+Fixed Fixed::operator/(const Fixed& other)
+{
+	return (Fixed (this->_nb / other.getRawBits()));
+}
+
+// Comparaison //
+
+bool Fixed::operator>(const Fixed& other)
+{
+	return (this->_nb > other.getRawBits());
+}
+
+bool Fixed::operator<(const Fixed& other)
+{
+	return (this->_nb < other.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed& other)
+{
+	return (this->_nb >= other.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed& other)
+{
+	return (this->_nb <= other.getRawBits());
+}
+
+bool Fixed::operator==(const Fixed& other)
+{
+	return (this->_nb == other.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed& other)
+{
+	return (this->_nb != other.getRawBits());
+}
+
+Fixed&		min(Fixed&	fixOne, Fixed& fixTwo)
+{
+	if (fixOne < fixTwo)
+		return (fixOne);
+	else
+		return (fixTwo);
+}
+
+Fixed&		max(Fixed& fixOne, Fixed& fixTwo)
+{
+	if (fixOne > fixTwo)
+		return (fixOne);
+	else
+		return (fixTwo);
+}
+
+Fixed&		min(Fixed& const fixOne, Fixed& const fixTwo) const
+{
+	if (fixOne < fixTwo)
+		return (fixOne);
+	else
+		return (fixTwo);
+}
+Fixed&		max(Fixed& const fixOne, Fixed& const fixTwo) const
+{
+	if (fixOne > fixTwo)
+		return (fixOne);
+	else
+		return (fixTwo);
+}
+
 
 /// Function ///
 
