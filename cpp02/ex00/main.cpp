@@ -6,13 +6,13 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:05:35 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/23 16:24:32 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/24 11:20:44 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main( void )
+int main(void)
 {
 	Fixed a;
 	Fixed b(a);

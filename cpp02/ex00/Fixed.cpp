@@ -6,18 +6,18 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:25:09 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/23 17:55:53 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/24 12:05:48 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _nb(0)
+Fixed::Fixed() : _nb(0), _fractional_bits(8)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& other) : _nb(other._nb)
+Fixed::Fixed(const Fixed& other) : _nb(other._nb), _fractional_bits(other._fractional_bits)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }

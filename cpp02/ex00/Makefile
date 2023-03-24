@@ -1,6 +1,6 @@
 #update on every project
-NAME := HarlFIlter
-LST_SRC := main Harl
+NAME := Fixed
+LST_SRC := main Fixed
 
 #update to match c or cpp
 CC := c++

@@ -8,15 +8,15 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed& other);
-		Fixed& operator=(const Fixed& other);
+		Fixed&	operator=(const Fixed& other);
 		~Fixed();
 
-		int getRawBits() const;
-		void setRawBits(int const raw);
+		int					getRawBits() const;
+		void				setRawBits(int const raw);
 
 	private:
-		int _nb;
-		static const int fractional_bits = 8;
+		int					_nb;
+		const int	_fractional_bits;
 };
 
 /* #include <iostream>
