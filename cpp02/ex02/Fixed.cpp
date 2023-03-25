@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:25:09 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/24 18:01:14 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/25 12:46:22 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,32 @@
 
 Fixed::Fixed() : _nb(0), _fractional_bits(8)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(int integer) : _fractional_bits(8)
 {
-	std::cout << "Default constructor called" << std::endl;
-
 	_nb = integer << _fractional_bits;
 }
 
 Fixed::Fixed(float floatNb) : _fractional_bits(8)
 {
-	std::cout << "Default constructor called" << std::endl;
 	_nb = roundf(floatNb * (1 << _fractional_bits));
 }
 
 Fixed::Fixed(const Fixed& other) : _nb(other._nb), _fractional_bits(other._fractional_bits)
 {
-	std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
+
+
 
 /// Operator ///
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	this->_nb = other._nb;
 	return (*this);
 }
@@ -57,7 +52,7 @@ std::ostream& operator<<(std::ostream &out, const Fixed& other)
 	return (out);
 }
 
-// Arithemtics //
+	// Arithemtics //
 
 Fixed Fixed::operator+(const Fixed& other)
 {
@@ -71,22 +66,68 @@ Fixed Fixed::operator-(const Fixed& other)
 
 Fixed Fixed::operator*(const Fixed& other)
 {
-	return (Fixed (this->_nb * other.getRawBits()));
+	Fixed tmp;
+	long long	firstVariable;
+	long long	secondVariable;
+
+	firstVariable = (long long)this->getRawBits();
+	secondVariable = (long long)other.getRawBits();
+	tmp.setRawBits((firstVariable * secondVariable) / (1 << _fractional_bits));
+	return (tmp);
 }
 
 Fixed Fixed::operator/(const Fixed& other)
 {
-	return (Fixed (this->_nb / other.getRawBits()));
+	Fixed		tmp;
+	long long	firstVariable;
+	long long	secondVariable;
+
+	firstVariable = (long long)this->getRawBits();
+	secondVariable = (long long)other.getRawBits();
+	tmp.setRawBits((firstVariable * (1 << _fractional_bits)) / secondVariable);
+	return (tmp);
 }
 
-// Comparaison //
+	// Incrementation //
 
-bool Fixed::operator>(const Fixed& other)
+Fixed	Fixed::operator++()
+{
+	this->_nb++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	tmp;
+	
+	tmp._nb = _nb;
+	this->_nb++;
+	return (tmp);
+}
+
+Fixed	Fixed::operator--()
+{
+	this->_nb--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	tmp;
+	
+	tmp._nb = _nb;
+	this->_nb--;
+	return (tmp);
+}
+
+	// Comparaison //
+
+bool Fixed::operator>(const Fixed& other) const
 {
 	return (this->_nb > other.getRawBits());
 }
 
-bool Fixed::operator<(const Fixed& other)
+bool Fixed::operator<(const Fixed& other) const
 {
 	return (this->_nb < other.getRawBits());
 }
@@ -111,7 +152,9 @@ bool Fixed::operator!=(const Fixed& other)
 	return (this->_nb != other.getRawBits());
 }
 
-Fixed&		min(Fixed&	fixOne, Fixed& fixTwo)
+	// Max and Min //
+
+Fixed&	Fixed::min(Fixed&	fixOne, Fixed& fixTwo)
 {
 	if (fixOne < fixTwo)
 		return (fixOne);
@@ -119,7 +162,7 @@ Fixed&		min(Fixed&	fixOne, Fixed& fixTwo)
 		return (fixTwo);
 }
 
-Fixed&		max(Fixed& fixOne, Fixed& fixTwo)
+Fixed&	Fixed::max(Fixed& fixOne, Fixed& fixTwo)
 {
 	if (fixOne > fixTwo)
 		return (fixOne);
@@ -127,27 +170,28 @@ Fixed&		max(Fixed& fixOne, Fixed& fixTwo)
 		return (fixTwo);
 }
 
-Fixed&		min(Fixed& const fixOne, Fixed& const fixTwo) const
+Fixed const	&Fixed::min(const Fixed& fixOne, const Fixed& fixTwo)
 {
 	if (fixOne < fixTwo)
 		return (fixOne);
 	else
 		return (fixTwo);
 }
-Fixed&		max(Fixed& const fixOne, Fixed& const fixTwo) const
+
+Fixed const	&Fixed::max(const Fixed& fixOne, const Fixed& fixTwo)
 {
 	if (fixOne > fixTwo)
 		return (fixOne);
 	else
 		return (fixTwo);
 }
+
 
 
 /// Function ///
 
 int Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_nb);
 }
 
