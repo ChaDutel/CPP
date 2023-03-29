@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:50:19 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/29 17:50:46 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/29 18:17:44 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other._name)
 {
-	// _name(other._name);
 	_hitPoints = other._hitPoints;
 	_energyPoints = other._energyPoints;
 	_attackDamage = other._attackDamage;
@@ -50,4 +49,11 @@ ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap Destructor called" << std::endl;
 	
+}
+
+/// Functions ///
+
+void	ScavTrap::guardGate()
+{
+	std::cout << _name << " enters guard gate mode!" << std::endl;
 }

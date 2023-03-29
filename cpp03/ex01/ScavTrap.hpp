@@ -12,13 +12,7 @@ class	ScavTrap : public ClapTrap
 		ScavTrap&	operator=(const ScavTrap& other);
 		~ScavTrap();
 
-		void			guardGate();
-
-	// private :
-	// 	std::string		_name;
-	// 	unsigned int	_hitPoints;
-	// 	unsigned int	_energyPoints;
-	// 	unsigned int	_attackDamage;
+		void		guardGate();
 };
 
 # endif

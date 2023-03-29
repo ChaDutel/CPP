@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:46:53 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/29 18:11:17 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/29 18:16:55 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main()
 	std::cout << std::endl;
 	jimin.attack("Alex");
 	alex.takeDamage(jimin.getAttackDamage());
+	alex.guardGate();
 	alex.printState();
 	std::cout << std::endl;
 	
