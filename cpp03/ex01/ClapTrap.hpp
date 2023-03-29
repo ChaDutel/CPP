@@ -19,7 +19,7 @@ class	ClapTrap
 		void			beRepaired(unsigned int amount);
 		unsigned int	getAttackDamage() const;
 
-	private :
+	protected :
 		std::string		_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;

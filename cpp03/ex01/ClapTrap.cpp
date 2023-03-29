@@ -6,13 +6,13 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:58:33 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/29 18:09:00 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/29 18:12:38 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-/// Builders ///
+/// Builder ///
 
 ClapTrap::ClapTrap() : _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
@@ -33,12 +33,12 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_name = other._name;
-	return *this;
+	return (*this);
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;	
 }
 
 

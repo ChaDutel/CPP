@@ -6,16 +6,17 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:46:53 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/29 14:25:58 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/29 18:11:17 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main()
 {
 	ClapTrap	jimin("Jimin");
-	ClapTrap	alex("Alex");
+	ScavTrap	alex("Alex");
 
 	std::cout << std::endl;
 	jimin.attack("Alex");
@@ -27,6 +28,7 @@ int	main()
 	alex.printState();
 	std::cout << std::endl;
 
+	jimin.printState();
 	jimin.attack("Alex");
 	alex.takeDamage(jimin.getAttackDamage());
 	alex.attack("Jimin");
@@ -35,16 +37,13 @@ int	main()
 	alex.printState();
 	std::cout << std::endl;
 
-	jimin.attack("Alex");	
-	jimin.attack("Alex");
-	jimin.attack("Alex");
-	jimin.attack("Alex");
-	jimin.attack("Alex");
-	jimin.attack("Alex");
 	jimin.attack("Alex");
 	jimin.printState();
 	std::cout << std::endl;
 	jimin.attack("Alex");
+	alex.attack("Jimin");
+	jimin.takeDamage(alex.getAttackDamage());
+	alex.printState();
 	jimin.printState();
 	jimin.attack("Alex");
 	jimin.printState();
