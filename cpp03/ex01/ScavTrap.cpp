@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:50:19 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/29 18:17:44 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/30 14:57:49 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,22 @@ ScavTrap::~ScavTrap()
 void	ScavTrap::guardGate()
 {
 	std::cout << _name << " enters guard gate mode!" << std::endl;
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (_hitPoints < 1)
+	{
+		std::cout << _name << " ScavTrap is already dead! Can't do any any action!" << std::endl;
+		return ;
+	}
+	else if (_energyPoints > 0)
+	{
+		std::cout << _name << " ScavTrap attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+		_energyPoints -= 1;
+	}
+	else
+	{
+		std::cout << "No more energy points for" << _name << " ScavTrap! Can't do any action!" << std::endl;
+	}
 }
