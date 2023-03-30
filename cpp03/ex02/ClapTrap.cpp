@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:58:33 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/29 18:12:38 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/30 12:02:39 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void			ClapTrap::printState()
 
 unsigned int	ClapTrap::getAttackDamage() const
 {
+	if (this->_hitPoints == 0)
+		return (0);
 	return (this->_attackDamage);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:46:53 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/03/29 18:27:44 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/03/30 11:55:18 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@ int	main()
 	jimin.takeDamage(alex.getAttackDamage());
 	jimin.printState();
 	alex.printState();
+	std::cout << std::endl;
+
+	john.printState();
+	jimin.attack("John");
+	john.takeDamage(jimin.getAttackDamage());
+	john.attack("Jimin");
+	jimin.takeDamage(john.getAttackDamage());
+	jimin.printState();
+	john.printState();
 	std::cout << std::endl;
 
 	jimin.attack("Alex");
