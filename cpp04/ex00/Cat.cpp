@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 14:32:23 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/03 15:33:26 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/04 14:21:37 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Cat::~Cat()
 
 /// Functions ///
 
-void	Cat::makeSound()
+void	Cat::makeSound() const
 {
 	std::cout << getType() << " is mewing !" << std::endl;
 }
