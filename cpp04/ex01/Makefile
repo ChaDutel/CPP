@@ -1,6 +1,6 @@
 #update on every project
-NAME := Animal
-LST_SRC := main Animal Cat Dog WrongCat WrongAnimal
+NAME := AnimalBrain
+LST_SRC := main Animal Cat Dog WrongAnimal WrongCat Brain
 
 #update to match c or cpp
 CC := c++
