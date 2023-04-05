@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 14:06:37 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/04 19:23:45 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/05 11:11:06 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,3 @@ std::string AAnimal::getType() const
 	return (this->_type);
 }
 
-void	AAnimal::makeSound() const
-{
-	std::cout << getType() << " makes a weird sound!" << std::endl;
-}

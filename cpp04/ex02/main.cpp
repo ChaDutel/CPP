@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 13:37:27 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/04 19:24:08 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/05 11:11:53 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 int main()
 {
+	// const AAnimal* a = new AAnimal();
 	const AAnimal* meta[4];
 	const AAnimal* j = new Dog();
 	const AAnimal* i = new Cat();
@@ -27,6 +28,7 @@ int main()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	w->makeSound();
+	// a->makeSound();
 	for (int integer = 0; integer < 4; integer++)
 	{
 		if (integer % 2 == 0)
@@ -38,6 +40,7 @@ int main()
 	delete j;
 	delete i;
 	delete w;
+	// delete a;
 	for (int integer = 0; integer < 4; integer++)
 		delete meta[integer];
 	return (0);
