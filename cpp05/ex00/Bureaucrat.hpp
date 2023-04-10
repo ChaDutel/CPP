@@ -16,8 +16,19 @@ class Bureaucrat
 		std::string	getName() const;
 		int			getGrade() const;
 		void		setGrade(int i);
-		void			incrementation(int i);
-		void			decrementation(int i);
+		void			incrementation();
+		void			decrementation();
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char* what(void) const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 
 	private:
 		std::string			_name;

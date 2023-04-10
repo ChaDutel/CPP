@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:56:12 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/06 15:42:14 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/09 15:33:58 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,35 @@ int	main()
 
 	try
 	{
-		worker.incrementation(2);
+		Bureaucrat Louis("Louis", 150);
+		
+		Louis.decrementation();
+	}
+	catch (std::exception &e)
+	{
+		std::cout <<e.what() << std::endl;
+	}
+	try
+	{
+		worker.incrementation();
 		std::cout << worker.getName() << " grade is " << worker << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Grade too high or low!" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	try
 	{
-		for (int i = 0; i < 15; i++)
+		for (int i = 0; i < 4; i++)
 		{
-			highWorker.incrementation(i);
+			highWorker.incrementation();
 			std::cout << highWorker.getName() << " grade is " << highWorker << std::endl;
 		}
+		// highWorker.incrementation();
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Grade too high or low!" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	return (0);
 }
