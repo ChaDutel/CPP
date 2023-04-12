@@ -6,16 +6,18 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:56:12 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/12 16:14:04 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/12 15:50:41 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main()
 {
-	Bureaucrat	 worker("John", 5);
-	Bureaucrat	 highWorker("Will", 5);
+	Bureaucrat	worker("John", 5);
+	Bureaucrat	highWorker("Will", 5);
+	Form		form("forms", 60, 140);
 
 	try
 	{
@@ -43,6 +45,7 @@ int	main()
 			highWorker.incrementation();
 			std::cout << highWorker.getName() << " grade is " << highWorker << std::endl;
 		}
+		// highWorker.incrementation();
 	}
 	catch (std::exception &e)
 	{
