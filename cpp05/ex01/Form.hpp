@@ -13,7 +13,7 @@ class Form
 		Form(const Form& other);
 		~Form();
 
-		void		beSigned(Bureaucrat	bur);
+		void		beSigned(const Bureaucrat	&bur);
 
 		// Getters //
 		std::string	getName() const;

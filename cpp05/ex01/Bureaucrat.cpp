@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:26:58 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/12 16:12:03 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/12 16:18:58 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,12 @@ void	Bureaucrat::decrementation()
 		setGrade(tmpGrade);
 }
 
-void	Bureaucrat::signForm()
+void	Bureaucrat::signForm(Form forms)
 {
+	catch ()
+	{
+		std::cout << _name << " couldn't sign " << Form._name << " because is grade is too low" << std::endl;
+	}
 	if (Form._signed == true)
 		std::cout << _name << " signed " << Form._name << std::endl;
 	else

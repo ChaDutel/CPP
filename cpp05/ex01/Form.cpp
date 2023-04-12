@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:27:00 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/12 16:12:30 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/12 16:17:48 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ Form::~Form()
 
 /// FUNCTIONS ///
 
-void		Form::beSigned(Bureaucrat	bur)
+void		Form::beSigned(const Bureaucrat	&bur)
 {
 	if (bur.getGrade() <= _gradeSigned)
 		_signed = true;
