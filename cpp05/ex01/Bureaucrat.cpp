@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:26:58 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/14 13:21:12 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/14 16:36:59 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,14 +98,6 @@ void	Bureaucrat::signForm(Form forms)
 	{
 		std::cout << _name << " couldn't sign " << forms.getName() << " because " << e.what() << std::endl;
 	}
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << _name << " couldn't sign " << forms.getName() << " because is grade is too low" << std::endl;
-	// }
-	// if (forms.getIsSigned() == true)
-	// 	std::cout << _name << " signed " << forms.getName() << std::endl;
-	// else
-	// 	std::cout << _name << " couldn't sign " << forms._name << " because is grade is too low" << std::endl;
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()

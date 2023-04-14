@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:27:00 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/14 14:19:44 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/14 16:20:46 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,15 @@ Form::Form() : _name(""), _gradeSigned(50), _gradeExecute(80), _signed(false)
 
 Form::Form(std::string name, int gradeSigned, int gradeExecute) : _name(name), _gradeSigned(gradeSigned), _gradeExecute(gradeExecute), _signed(false)
 {
-	try
-	{	
-		if (gradeSigned < 1)
-			throw GradeTooHighException();
-		if (gradeSigned > 150)
-			throw GradeTooLowException();
+	if (gradeSigned < 1)
+		throw GradeTooHighException();
+	if (gradeSigned > 150)
+		throw GradeTooLowException();
 
-		if (gradeExecute < 1)
-			throw GradeTooHighException();
-		if (gradeExecute > 150)
-			throw GradeTooLowException();
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	if (gradeExecute < 1)
+		throw GradeTooHighException();
+	if (gradeExecute > 150)
+		throw GradeTooLowException();
 }
 
 Form::Form(const Form& other) : _name(other._name), _gradeSigned(other._gradeSigned), _gradeExecute(other._gradeExecute), _signed(false)
@@ -65,7 +58,7 @@ void		Form::beSigned(const Bureaucrat	&bur)
 	if (bur.getGrade() <= _gradeSigned)
 		_signed = true;
 	else
-		throw GradeTooLowException();
+		throw GradeTooHighException();
 }
 
 // GETTERS //
