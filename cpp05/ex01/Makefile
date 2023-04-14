@@ -1,6 +1,6 @@
 #update on every project
-NAME := Bureaucrat
-LST_SRC := main Bureaucrat
+NAME := BureaucratForm
+LST_SRC := main Bureaucrat Form
 #update to match c or cpp
 CC := c++
 FILE_EXT := .cpp
