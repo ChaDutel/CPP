@@ -1,6 +1,6 @@
 #update on every project
-NAME := BureaucratForm
-LST_SRC := main Bureaucrat AForm ShrubberyCreationForm
+NAME := Forms
+LST_SRC := main Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm
 #update to match c or cpp
 CC := c++
 FILE_EXT := .cpp

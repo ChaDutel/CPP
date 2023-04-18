@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:26:58 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/15 19:13:45 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/18 10:54:31 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	Bureaucrat::decrementation()
 		setGrade(tmpGrade);
 }
 
-void	Bureaucrat::signForm(AForm forms)
+void	Bureaucrat::signForm(AForm & forms)
 {
 	try
 	{

@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 15:27:22 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/15 19:03:51 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/18 12:09:17 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
+  if (getIsSigned() == false || executor.getGrade() > getGradeExecute())
+	{
+		std::cout << "The form isn't signed or ShrubberyCreationForm ";	
+		throw GradeTooHighException();
+	}
+
+
+
 	std::fstream	newtFile;
 	std::string		myNewFile;
 
@@ -57,10 +65,10 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	}
 	else
 	{
-		std::cout << "The replace file created successfully!" << std::endl;
+		std::cout << "The file created successfully!" << std::endl;
 		
-		newtFile << "						                                 .\n                                              .         ;\n                 .              .              ;%     ;;\n                   ,           ,                :;%  %;                       :         ;                   :;%;'     .,\n            ,.        %;     %;            ;        %;'    ,;\n             ;       ;%;  %%;        ,     %;    ;%;    ,%'\n              %;       %;%;      ,  ;       %;  ;%;   ,%;'\n               ;%;      %;        ;%;        % ;%;  ,%;'\n                `%;.     ;%;     %;'         `;%%;.%;'\n                 `:;%.    ;%%. %@;        %; ;@%;%'\n                    `:%;.  :;bd%;          %;@%;'\n                      `@%:.  :;%.         ;@@%;'\n                        `@%.  `;@%.      ;@@%;\n                               `@%%. `@%%    ;@@%;\n                                 ;@%. :@%%  %@@%;\n                                  %@bd%%%bd%%:;\n                                  #@%%%%%:;;\n                                %@@%%%::;\n                                %@@@%(o);  . '\n                                         %@@@o%;:(.,'\n                                 `.. %@@@o%::;\n                                   `)@@@o%::;\n                                       %@@(o)::;\n                                     .%@@@@%::;\n                                      ;%@@@@%::;.\n                                       ;%@@@@%%:;;;.\n                          ...;%@@@@@%%:;;;;,..\n";
-		newtFile.close();
+		newtFile << "						                                 .\n                                              .         ;\n                 .              .              ;%     ;;\n                   ,           ,                :;%  %;                       :         ;                   :;%;'     .,\n            ,.        %;     %;            ;        %;'    ,;\n             ;       ;%;  %%;        ,     %;    ;%;    ,%'\n              %;       %;%;      ,  ;       %;  ;%;   ,%;'\n               ;%;      %;        ;%;        % ;%;  ,%;'\n                `%;.     ;%;     %;'         `;%%;.%;'\n                 `:;%.    ;%%. %@;        %; ;@%;%'\n                    `:%;.  :;bd%;          %;@%;'\n                      `@%:.  :;%.         ;@@%;'\n                        `@%.  `;@%.      ;@@%;\n                               `@%%. `@%%    ;@@%;\n                                 ;@%. :@%%  %@@%;\n                                  %@bd%%%bd%%:;\n                                  #@%%%%%:;;\n                                %@@%%%::;\n                                %@@@%(o);  . '\n                                    %@@@o%;:(.,'\n                              `.. %@@@o%::;\n                                `)@@@o%::;\n                                  %@@(o)::;\n                                     .%@@@@%::;\n                                      ;%@@@@%::;.\n                                       ;%@@@@%%:;;;.\n                          ...;%@@@@@%%:;;;;,..\n";
+    newtFile.close();
 	}
 }
 
@@ -92,6 +100,3 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
                                ;%@@@@%::;.          
                               ;%@@@@%%:;;;. 
                           ...;%@@@@@%%:;;;;,.." */
-
-						  
-// "						                                 .\n                                              .         ;\n                 .              .              ;%     ;;\n                   ,           ,                :;%  %;                       :         ;                   :;%;'     .,\n            ,.        %;     %;            ;        %;'    ,;\n             ;       ;%;  %%;        ,     %;    ;%;    ,%'\n              %;       %;%;      ,  ;       %;  ;%;   ,%;'\n               ;%;      %;        ;%;        % ;%;  ,%;'\n                `%;.     ;%;     %;'         `;%%;.%;'\n                 `:;%.    ;%%. %@;        %; ;@%;%'\n                    `:%;.  :;bd%;          %;@%;'\n                      `@%:.  :;%.         ;@@%;'\n                        `@%.  `;@%.      ;@@%;\n                               `@%%. `@%%    ;@@%;\n                                 ;@%. :@%%  %@@%;\n                                  %@bd%%%bd%%:;\n                                  #@%%%%%:;;\n                                %@@%%%::;\n                                %@@@%(o);  . '\n                                         %@@@o%;:(.,'\n                                 `.. %@@@o%::;\n                                   `)@@@o%::;\n                                       %@@(o)::;\n                                     .%@@@@%::;\n                                      ;%@@@@%::;.\n                                       ;%@@@@%%:;;;.\n                          ...;%@@@@@%%:;;;;,..\n"

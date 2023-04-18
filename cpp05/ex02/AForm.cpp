@@ -84,10 +84,10 @@ bool		AForm::getIsSigned() const
 
 const char*	AForm::GradeTooHighException::what() const throw()
 {
-	return ("AForm Grade is too high");
+	return ("form Grade is too high");
 }
 
 const char*	AForm::GradeTooLowException::what() const throw()
 {
-	return ("AForm Grade is too low");
+	return ("form Grade is too low");
 }
