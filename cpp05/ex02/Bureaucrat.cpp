@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:26:58 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/18 10:54:31 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/18 14:03:09 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,21 @@ void	Bureaucrat::signForm(AForm & forms)
 	}
 }
 
+void		Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << getName() << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
+}
+
+
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high, it's less than 1");
@@ -108,9 +123,4 @@ const char*	Bureaucrat::GradeTooHighException::what() const throw()
 const char*	Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low, it's more than 150");
-}
-
-void	Bureaucrat::executeForm(AForm const & form)
-{
-	std::cout << _name << " excecuted form " << form.getName();
 }

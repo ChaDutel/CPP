@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:56:12 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/18 12:23:33 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/18 14:05:47 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,12 @@ int	main()
 		shrub.execute(boss);
 		std::cout << std::endl;
 
+		boss.executeForm(robot);
+		std::cout << std::endl;
+		
 		robot.beSigned(boss);
 		robot.execute(boss);
+		boss.executeForm(robot);
 		std::cout << std::endl;
 
 		president.beSigned(boss);
