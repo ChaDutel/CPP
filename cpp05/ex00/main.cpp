@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:56:12 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/12 16:14:04 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/19 12:13:10 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ int	main()
 	{
 		std::cout <<e.what() << std::endl;
 	}
+	std::cout << std::endl;
+
+
 	try
 	{
 		worker.incrementation();
@@ -36,6 +39,9 @@ int	main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+	std::cout << std::endl;
+
+
 	try
 	{
 		for (int i = 0; i < 4; i++)

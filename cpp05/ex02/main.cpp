@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:56:12 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/18 14:05:47 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/19 12:11:29 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,47 @@
 
 int	main()
 {
+	try 
+	{
+		Bureaucrat boss("Boss", 5);
+		ShrubberyCreationForm	shrub("trees");
+		RobotomyRequestForm		robot("robotRequest");
+		PresidentialPardonForm	president("presidential");
+
+		shrub.beSigned(boss);
+		shrub.execute(boss);
+		std::cout << std::endl;
+
+		boss.executeForm(robot);
+		std::cout << std::endl;
+		
+		robot.beSigned(boss);
+		robot.execute(boss);
+		boss.executeForm(robot);
+		std::cout << std::endl;
+
+		president.beSigned(boss);
+		president.execute(boss);
+		
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;		
+	}
+	std::cout << std::endl;
+
+	
+	try
+	{
+		// AForm		formul("formu", 155, 40);
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+
 	try
 	{
 		Bureaucrat	worker("John", 5);
@@ -41,34 +82,8 @@ int	main()
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-	try 
-	{
-		Bureaucrat boss("Boss", 5);
-		ShrubberyCreationForm	shrub(boss);
-		RobotomyRequestForm		robot(boss);
-		PresidentialPardonForm	president(boss);
 
-		shrub.beSigned(boss);
-		shrub.execute(boss);
-		std::cout << std::endl;
-
-		boss.executeForm(robot);
-		std::cout << std::endl;
-		
-		robot.beSigned(boss);
-		robot.execute(boss);
-		boss.executeForm(robot);
-		std::cout << std::endl;
-
-		president.beSigned(boss);
-		president.execute(boss);
-		
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;		
-	}
-	std::cout << std::endl;
+	
 	try
 	{
 		Bureaucrat Louis("Louis", 150);
@@ -81,17 +96,6 @@ int	main()
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		// Form		formul("formu", 155, 40);
-
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	
+	}	
 	return (0);
 }

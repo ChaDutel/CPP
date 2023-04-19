@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 15:27:22 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/18 14:07:56 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/19 11:19:06 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(Bureaucrat bur) : AForm("ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137)
 {
-	_target = bur.getName();
+	_target = target;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other.getName(), 145, 137)
@@ -42,6 +42,12 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
+/// FUNCTIONS ///
+
+std::string	ShrubberyCreationForm::getTarget() const
+{
+	return (this->_target);
+}
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
@@ -56,7 +62,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	std::fstream	newtFile;
 	std::string		myNewFile;
 
-	myNewFile = executor.getName() + "_shrubbery";
+	myNewFile = getTarget() + "_shrubbery";
 	newtFile.open(myNewFile.c_str(), std::ios::out);
 	if (!newtFile || newtFile.fail())
 	{

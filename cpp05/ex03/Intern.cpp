@@ -6,84 +6,77 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:26:58 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/18 16:19:51 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/19 12:04:25 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Intern.hpp"
 
 /// BUILDERS ///
 
-Bureaucrat::Bureaucrat() : _name("")
+Intern::Intern()
 {
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Intern::Intern(const Intern& other)
 {
-    if (grade > 150)
-        throw(GradeTooLowException());
-    else if (grade < 1)
-        throw(GradeTooHighException());
-    _name = name;
-    _grade = grade;
+	*this = other;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name)
+Intern& Intern::operator=(const Intern& other)
 {
-}
-
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
-{
-	this->_name = other._name;
+	*this = other;
 	return (*this);
 }
 
-std::ostream& operator<<(std::ostream &out, const Bureaucrat& other)
+std::ostream& operator<<(std::ostream &out, const Intern& other)
 {
-	out << other.getGrade();
+	out << other;
 	return (out);
 }
 
-Bureaucrat::~Bureaucrat()
+Intern::~Intern()
 {
 }
 
 /// FUNCTIONS ///
 
-AForm	*makeForm(std::string formName, std::string dst)
+AForm	*Intern::switchChoose(int i, std::string dst)
 {
+	while (i < 3)
+	{
+		switch (i)
+		{
+			case 0 :
+				return (new ShrubberyCreationForm(dst));
+			case 1 :
+				return (new RobotomyRequestForm(dst));
+			case 2 :
+				return (new PresidentialPardonForm(dst));
+			default :
+				break;
+		}
+		i++;
+	}
+	return (NULL);
+}
+
+AForm	*Intern::makeForm(std::string formName, std::string dst)
+{
+	int	count;
 	std::string    levelArray[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+
+	count = 0;
 	for (int i = 0; i < 3; i++)
 	{
 		if (levelArray[i] == formName)
 		{
-			AForm	newForm = new AForm(formName, 1, 1);
+			count++;
 			std::cout << "Intern creates " << formName << std::endl;
-			newForm._target = dst;
-			return (*newForm);
+			return (switchChoose(i, dst));
 		}
 	}
-	std::cout << "The Intern can't find the form" << std::endl;
-}
-
-// void    Harl::complain(std::string level)
-// {
-// 	PointerArray   array[4] = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
-// 	std::string    levelArray[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-// 	for (int i = 0; i < 4; i++)
-// 	{
-// 		if (levelArray[i] == level)
-// 			(this->*array[i])();
-// 	}
-// }
-
-
-const char*	Bureaucrat::GradeTooHighException::what() const throw()
-{
-	return ("Grade is too high, it's less than 1");
-}
-
-const char*	Bureaucrat::GradeTooLowException::what() const throw()
-{
-	return ("Grade is too low, it's more than 150");
+	if (count == 0)
+		std::cout << "The Intern can't find the form \"" << formName << "\"" << std::endl;
+	return (NULL);
 }

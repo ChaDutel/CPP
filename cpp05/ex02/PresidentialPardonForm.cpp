@@ -16,9 +16,9 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(Bureaucrat bur) : AForm("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5)
 {
-	_target = bur.getName();
+	_target = target;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other.getName(), 72, 45)
@@ -40,6 +40,13 @@ std::ostream& operator<<(std::ostream &out, const PresidentialPardonForm& other)
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
+}
+
+/// FUNCTIONS ///
+
+std::string	PresidentialPardonForm::getTarget() const
+{
+	return (this->_target);
 }
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const

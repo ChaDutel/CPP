@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:09:35 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/18 12:09:05 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/19 11:18:35 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(Bureaucrat bur) : AForm("RobotomyRequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45)
 {
-	_target = bur.getName();
+	_target = target;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other.getName(), 72, 45)
@@ -40,6 +40,13 @@ std::ostream& operator<<(std::ostream &out, const RobotomyRequestForm& other)
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
+}
+
+/// FUNCTIONS ///
+
+std::string	RobotomyRequestForm::getTarget() const
+{
+	return (this->_target);
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
