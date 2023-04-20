@@ -2,8 +2,9 @@
 # define CURE_HPP
 
 # include "ICharacter.hpp"
+# include "AMateria.hpp"
 
-class	Cure
+class	Cure : public AMateria
 {
 	public :
 		Cure();
@@ -11,11 +12,8 @@ class	Cure
 		Cure&	operator=(const Cure& other);
 		~Cure();
 
-		void	use(ICharacter&);
-		//  clone()
-
-	private :
-		std::string	_type = "cure";
+		AMateria*		clone() const;
+		void			use(ICharacter& target);
 };
 
 #endif

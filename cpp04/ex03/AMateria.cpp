@@ -1,47 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/05 13:57:16 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/20 13:59:14 by cdutel-l         ###   ########lyon.fr   */
+/*   Created: 2023/04/20 13:43:50 by cdutel-l          #+#    #+#             */
+/*   Updated: 2023/04/20 13:46:17 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Ice.hpp"
+# include "AMateria.hpp"
 
 /// Builders ///
 
-Ice::Ice() : _type("ice")
+AMateria::AMateria() : _type("")
 {
 }
 
-Ice::Ice(const Ice& other)
+AMateria::AMateria(std::string const & type) : _type(type)
+{
+}
+
+AMateria::AMateria(const AMateria& other)
 {
 	this->_type = other._type;
 }
 
-Ice& Ice::operator=(const Ice& other)
+AMateria& AMateria::operator=(const AMateria& other)
 {
 	(void)other;
 	return (*this);
 }
 
-Ice::~Ice()
+AMateria::~AMateria()
 {
-}
-
-/// FUNCTIONS ///
-
-void	Ice::use(ICharacter& target)
-{
-	std::cout << "* shoots an ice bolt at" << target.getName() << " *" << std::endl;
-}
-
-AMateria*		Ice::clone() const
-{
-	AMateria	*cpCure = new Cure("ice");
-	return (cpCure);
 }

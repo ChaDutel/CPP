@@ -2,8 +2,9 @@
 # define ICE_HPP
 
 # include "ICharacter.hpp"
+# include "AMateria.hpp"
 
-class	Ice
+class	Ice : public AMateria
 {
 	public :
 		Ice();
@@ -11,9 +12,8 @@ class	Ice
 		Ice&	operator=(const Ice& other);
 		~Ice();
 
-		void	use(ICharacter&);
-	private :
-		std::string	_type = "ice";
+		AMateria*		clone() const;
+		void			use(ICharacter& target);
 };
 
 #endif
