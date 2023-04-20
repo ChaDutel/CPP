@@ -6,9 +6,13 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:26:06 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/19 14:26:35 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/20 17:20:03 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+# include "Character.hpp"
+# include "IMateriaSource.hpp"
+# include "MateriaSource.hpp"
 
 int main()
 {
