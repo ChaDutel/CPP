@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:34:57 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/20 17:38:18 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/20 17:44:31 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@ IMateriaSource::IMateriaSource()
 {
 }
 
-IMateriaSource::IMateriaSource(std::string name)
-{
-}
 
 IMateriaSource::IMateriaSource(const IMateriaSource& other)
 {
@@ -43,15 +40,16 @@ IMateriaSource::~IMateriaSource()
 
 /// Functions ///
 
-void 		learnMateria(AMateria* materia)
+void 		IMateriaSource::learnMateria(AMateria* materia)
 {
-	
+	*_materias[i] = materia;
 }
 
 
-AMateria* 	createMateria(std::string const & type)
+AMateria* 	IMateriaSource::createMateria(std::string const & type)
 {
-	
+	AMateria	cpMateria = new AMateria._materias[i]();
+	return (cpMateria);
 }
 
 learnMateria(AMateria*)
