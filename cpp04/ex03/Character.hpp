@@ -19,7 +19,6 @@ class	Character : public ICharacter
 		void 				use(int idx, ICharacter& target);
 
 	private :
-		// AMateria	_items[4];
 		AMateria*	_items[4];
 		std::string	_name;
 };

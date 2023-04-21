@@ -1,6 +1,6 @@
 #update on every project
 NAME := Character
-LST_SRC := main Ice Cure Amateria
+LST_SRC := main Ice Cure AMateria MateriaSource Character
 
 #update to match c or cpp
 CC := c++

@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:24:09 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/21 13:40:04 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/21 16:44:13 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,24 @@ MateriaSource::~MateriaSource()
 
 void 		MateriaSource::learnMateria(AMateria* materia)
 {
-	*_materias = materia;
+	for (int i = 0; i < 4; i++)
+	{
+		if (!_materias[i])
+		{
+			_materias[i] = materia;
+			return ;
+		}
+	}
 }
 
 
 AMateria* 	MateriaSource::createMateria(std::string const & type)
 {
-	// AMateria	cpMateria = new AMateria._materias[i]();
 	for (int i = 0; _materias[i]; i++)
 	{
 		if (_materias[i]->getType() == type)
 			return (_materias[i]->clone());
-		// AMateria	*cpMateria = this->*_materias[i].clone();
 	}
-	
-	// AMateria	*cpMateria = this->_materias[0].clone();
 	return (0);
 }
 
