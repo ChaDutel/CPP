@@ -12,7 +12,9 @@ class	Cat : public AAnimal
 		Cat&	operator=(const Cat& other);
 		~Cat();
 
-		void	makeSound() const;
+		void		makeSound() const;
+		void		learn(std::string idea);
+		std::string	getLearn(int i) const;
 	
 	private :
 		Brain *_brain;

@@ -16,7 +16,7 @@
 
 WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 {
-	std::cout << "WrongAnimal construction done\n";
+	std::cout << "WrongAnimal construction called\n";
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other) : _type(other._type)
@@ -33,7 +33,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal destructor done\n";
+	std::cout << "WrongAnimal destructor called\n";
 }
 
 /// Functions ///
@@ -46,5 +46,5 @@ std::string WrongAnimal::getType() const
 
 void	WrongAnimal::makeSound() const
 {
-	std::cout << getType() << " makes a weird sound!" << std::endl;
+	std::cout << getType() << " makes a weird \"wrong\" sound!" << std::endl;
 }

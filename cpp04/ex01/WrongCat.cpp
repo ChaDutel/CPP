@@ -17,7 +17,7 @@
 WrongCat::WrongCat() : WrongAnimal()
 {
 	_type = "WrongCat";
-	std::cout << "WrongCat construction done\n";
+	std::cout << "WrongCat construction called\n";
 }
 
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal()
@@ -35,7 +35,7 @@ WrongCat& WrongCat::operator=(const WrongCat& other)
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat destructor done\n";
+	std::cout << "WrongCat destructor called\n";
 }
 
 /// Functions ///

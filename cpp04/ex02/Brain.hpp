@@ -12,7 +12,10 @@ class	Brain
 		Brain&	operator=(const Brain& other);
 		virtual ~Brain();
 
-	protected :
+		void		setIdeas(std::string idea);
+		std::string	getIdeas(int i) const;
+
+	private :
 		std::string	_ideas[100];
 };
 

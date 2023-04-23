@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 14:06:37 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/03 15:32:45 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/23 16:38:20 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Animal::Animal() : _type("Animal")
 {
-	std::cout << "Animal construction done\n";
+	std::cout << "Animal construction called\n";
 }
 
 Animal::Animal(const Animal& other) : _type(other._type)
@@ -33,7 +33,7 @@ Animal& Animal::operator=(const Animal& other)
 
 Animal::~Animal()
 {
-	std::cout << "Animal destructor done\n";
+	std::cout << "Animal destructor called\n";
 }
 
 /// Functions ///
