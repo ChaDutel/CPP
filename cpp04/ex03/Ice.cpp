@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:57:16 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/21 16:44:31 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/23 12:58:17 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Ice::Ice()
 
 Ice::Ice(const Ice& other) : AMateria()
 {
-	this->_type = "ice";
 	(void)other;
+	this->_type = "ice";
 }
 
 Ice& Ice::operator=(const Ice& other)

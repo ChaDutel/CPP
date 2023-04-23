@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:24:09 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/21 16:44:13 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/23 13:33:03 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,42 @@
 
 MateriaSource::MateriaSource()
 {
+	for (int i = 0; i < 4; i++)
+		_materias[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
-	*this = other;
+	for (int i = 0; i < 4; i++)
+	{
+		if (other._materias[i])
+			this->_materias[i] = other._materias[i]->clone();
+		else
+			this->_materias[i] = NULL;
+	}
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 {
-	(void)other;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_materias[i])
+			delete this->_materias[i];
+		else if (other._materias[i])
+			this->_materias[i] = other._materias[i]->clone();
+		else
+			this->_materias[i] = NULL;
+	}
 	return (*this);
 }
 
 MateriaSource::~MateriaSource()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (_materias[i])
+			delete _materias[i];
+	}
 }
 
 /// Functions ///
@@ -50,17 +71,13 @@ void 		MateriaSource::learnMateria(AMateria* materia)
 
 AMateria* 	MateriaSource::createMateria(std::string const & type)
 {
-	for (int i = 0; _materias[i]; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		if (_materias[i]->getType() == type)
-			return (_materias[i]->clone());
+		if (_materias[i])
+		{
+			if (_materias[i]->getType() == type)
+				return (_materias[i]->clone());
+		}
 	}
 	return (0);
 }
-
-// learnMateria(AMateria*)
-// 	Copie la Materia passée en paramètre et la stocke en mémoire afin de la cloner
-// 	plus tard. Tout comme le IMateriaSource, la MateriaSource peut contenir 4 Materias
-// 	maximum. Ces dernières ne sont pas forcément uniques.
-// • createMateria(std::string const &)
-// 	Retourne une nouvelle Materia. Celle-ci est une copie de celle apprise précédemment par la MateriaSource et dont le type est le même que celui passé en paramètre. Retourne 0 si le type est inconnu

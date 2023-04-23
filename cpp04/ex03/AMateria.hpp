@@ -9,8 +9,6 @@ class AMateria
 {
 	public:
 		AMateria();
-		AMateria(std::string const & type);
-		AMateria&	operator=(const AMateria& other);
 		virtual ~AMateria();
 
 
@@ -22,6 +20,8 @@ class AMateria
 		std::string	_type;
 	private:
 		AMateria(const AMateria& other);
+		AMateria(std::string const & type);
+		AMateria&	operator=(const AMateria& other);
 };
 
 # endif

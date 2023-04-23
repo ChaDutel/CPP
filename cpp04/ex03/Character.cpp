@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:07:16 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/21 15:45:26 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/04/23 13:25:48 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,36 @@ Character::Character(std::string name) : _name(name)
 Character::Character(const Character& other)
 {
 	this->_name = other._name;
+	for (int i = 0; i < 4; i++)
+	{
+		if (other._items[i])
+			this->_items[i] = other._items[i]->clone();
+		else
+			this->_items[i] = NULL;
+	}
 }
 
 Character& Character::operator=(const Character& other)
 {
-	
-	(void)other;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_items[i])
+			delete this->_items[i];
+		else if (other._items[i])
+			this->_items[i] = other._items[i]->clone();
+		else
+			this->_items[i] = NULL;
+	}
 	return (*this);
 }
 
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (_items[i])
+			delete _items[i];
+	}
 }
 
 /// Functions ///
@@ -63,10 +82,16 @@ void 				Character::equip(AMateria* m)
 
 void 				Character::unequip(int idx)
 {
-	_items[idx] = NULL;
+	if (idx < 4 && idx >= 0)
+		_items[idx] = NULL;
 }
 
 void 				Character::use(int idx, ICharacter& target)
 {
-	this->_items[idx]->use(target);
+	if (idx < 4 && idx >= 0 && this->_items[idx])
+	{
+		this->_items[idx]->use(target);
+		delete this->_items[idx];
+		this->_items[idx] = NULL;
+	}
 }
