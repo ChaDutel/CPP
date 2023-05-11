@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:56:12 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/05/11 17:22:36 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/11 19:00:54 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ int	main()
 		RobotomyRequestForm		robot("robotRequest");
 		PresidentialPardonForm	president("presidential");
 
-		shrub.beSigned(boss);
+		boss.signForm(shrub);
 		boss.executeForm(shrub);
 		std::cout << std::endl;
 
 		boss.executeForm(robot);
 		std::cout << std::endl;
-		
-		robot.beSigned(boss);
+
+		boss.signForm(robot);
 		robot.execute(boss);
 		boss.executeForm(robot);
 		std::cout << std::endl;
 
-		president.beSigned(boss);
+		boss.signForm(president);
 		boss.executeForm(president);
 		
 	}

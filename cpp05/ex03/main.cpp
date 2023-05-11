@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:56:12 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/05/11 18:56:29 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/11 19:01:08 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,24 @@ int	main()
 	try 
 	{
 		Bureaucrat boss("Boss", 5);
-		ShrubberyCreationForm	shrub("garden");
+		ShrubberyCreationForm	shrub("trees");
 		RobotomyRequestForm		robot("robotRequest");
-		PresidentialPardonForm	president("president");
+		PresidentialPardonForm	president("presidential");
 
-		shrub.beSigned(boss);
-		shrub.execute(boss);
+		boss.signForm(shrub);
+		boss.executeForm(shrub);
 		std::cout << std::endl;
 
 		boss.executeForm(robot);
 		std::cout << std::endl;
-		
-		robot.beSigned(boss);
+
+		boss.signForm(robot);
 		robot.execute(boss);
 		boss.executeForm(robot);
 		std::cout << std::endl;
 
-		president.beSigned(boss);
-		president.execute(boss);
+		boss.signForm(president);
+		boss.executeForm(president);
 		
 	}
 	catch (const std::exception& e)
