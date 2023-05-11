@@ -15,12 +15,12 @@ class Intern
 	public:
 		Intern();
 		Intern(const Intern& other);
-		Intern&	operator=(const Intern& other);
 		~Intern();
 
 		AForm	*makeForm(std::string formName, std::string dst);
 
 	private :
+		Intern&	operator=(const Intern& other);
 		AForm	*switchChoose(int i, std::string dst);
 };
 

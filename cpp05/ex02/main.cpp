@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:56:12 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/19 12:11:29 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/11 17:22:36 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main()
 		PresidentialPardonForm	president("presidential");
 
 		shrub.beSigned(boss);
-		shrub.execute(boss);
+		boss.executeForm(shrub);
 		std::cout << std::endl;
 
 		boss.executeForm(robot);
@@ -38,7 +38,7 @@ int	main()
 		std::cout << std::endl;
 
 		president.beSigned(boss);
-		president.execute(boss);
+		boss.executeForm(president);
 		
 	}
 	catch (const std::exception& e)

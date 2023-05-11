@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:09:35 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/18 16:13:39 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/11 17:16:16 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 
 std::ostream& operator<<(std::ostream &out, const RobotomyRequestForm& other)
 {
-	out << other.getName() << " " << other.getGradeSigned() << " " << other.getGradeExecute() << " " << other.getIsSigned();
+	out << other.getName() << " sign grade is " << other.getGradeSigned() << ", execute grade is " << other.getGradeExecute() << " and signed status is " << other.getIsSigned();
 	return (out);
 }
 
@@ -65,7 +65,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	std::srand(std::time(0));
 	nb = std::rand();
 	if (nb % 2 == 0)
-		std::cout << "Sucess! " << getTarget() << " has been robotized." << std::endl;
+		std::cout << "Success! " << getTarget() << " has been robotized." << std::endl;
 	else
 		std::cout << "Fail to execute the operation!" << std::endl;
 }

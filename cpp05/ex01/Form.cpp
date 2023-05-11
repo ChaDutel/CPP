@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:27:00 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/14 16:20:46 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/11 16:25:47 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Form& Form::operator=(const Form& other)
 
 std::ostream& operator<<(std::ostream &out, const Form& other)
 {
-	out << other.getName() << " " << other.getGradeSigned() << " " << other.getGradeExecute() << " " << other.getIsSigned();
+	out << other.getName() << " sign grade is " << other.getGradeSigned() << ", execute grade is " << other.getGradeExecute() << " and signed status is " << other.getIsSigned();
 	return (out);
 }
 
@@ -58,7 +58,7 @@ void		Form::beSigned(const Bureaucrat	&bur)
 	if (bur.getGrade() <= _gradeSigned)
 		_signed = true;
 	else
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 }
 
 // GETTERS //
@@ -84,10 +84,10 @@ bool		Form::getIsSigned() const
 
 const char*	Form::GradeTooHighException::what() const throw()
 {
-	return ("Form Grade is too high");
+	return ("Form Grade is too low");
 }
 
 const char*	Form::GradeTooLowException::what() const throw()
 {
-	return ("Form Grade is too low");
+	return ("Form Grade is too high");
 }

@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:56:12 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/19 12:08:08 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/11 18:56:29 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,15 @@
 int	main()
 {
 	Intern	internNoob;
+	Bureaucrat ighor("Ighor", 5);
+	AForm	*myForm;
 
-	internNoob.makeForm("ShrubberyCreationForm", "Jean");
+	myForm = internNoob.makeForm("ShrubberyCreationForm", "Jean");
+	ighor.signForm(*myForm);
+	ighor.executeForm(*myForm);
+	delete myForm;
 	std::cout << std::endl;
-	internNoob.makeForm("WrongForm", "Luka");
+	myForm = internNoob.makeForm("WrongForm", "Luka");
 
 
 	try 

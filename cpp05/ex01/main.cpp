@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:56:12 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/19 12:13:41 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/11 16:19:54 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main()
 			std::cout << worker.getName() << " grade is " << worker << std::endl;
 
 			worker.signForm(form);
+			std::cout << form << std::endl;
 			worker.signForm(formul);
 			std::cout << std::endl;
 		for (int i = 0; i < 4; i++)

@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:26:58 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/04/18 14:03:09 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/11 16:08:01 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@ Bureaucrat::Bureaucrat() : _name("")
 {
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
     if (grade > 150)
         throw(GradeTooLowException());
     else if (grade < 1)
         throw(GradeTooHighException());
-    _name = name;
     _grade = grade;
 }
 
@@ -34,7 +33,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name)
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-	this->_name = other._name;
+	this->_grade = other._grade;
 	return (*this);
 }
 

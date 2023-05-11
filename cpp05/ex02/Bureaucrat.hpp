@@ -13,7 +13,6 @@ class Bureaucrat
 		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat& other);
-		Bureaucrat&	operator=(const Bureaucrat& other);
 		~Bureaucrat();
 
 		std::string	getName() const;
@@ -36,7 +35,8 @@ class Bureaucrat
 		};
 
 	private:
-		std::string			_name;
+		Bureaucrat&	operator=(const Bureaucrat& other);
+		std::string const	_name;
 		int					_grade;
 };
 

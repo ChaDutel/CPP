@@ -21,7 +21,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 	_target = target;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other.getName(), 72, 45)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other.getName(), 25, 5)
 {
 	this->_target = other._target;
 }
@@ -34,7 +34,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 
 std::ostream& operator<<(std::ostream &out, const PresidentialPardonForm& other)
 {
-	out << other.getName() << " " << other.getGradeSigned() << " " << other.getGradeExecute() << " " << other.getIsSigned();
+	out << other.getName() << " sign grade is " << other.getGradeSigned() << ", execute grade is " << other.getGradeExecute() << " and signed status is " << other.getIsSigned();
 	return (out);
 }
 
@@ -54,7 +54,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (getIsSigned() == false || executor.getGrade() > getGradeExecute())
 	{
-		std::cout << "The form isn't signed or RobotomyRequestForm ";	
+		std::cout << "The form isn't signed or PresidentialPardonForm ";	
 		throw GradeTooHighException();
 	}
 

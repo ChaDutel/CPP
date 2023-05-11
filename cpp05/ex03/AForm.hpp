@@ -14,7 +14,7 @@ class AForm
 		AForm();
 		AForm(std::string name, int gradeSigned, int gradeExecute);
 		AForm(const AForm& other);
-		~AForm();
+		virtual ~AForm();
 
 		void			beSigned(const Bureaucrat	&bur);
 		virtual void	execute(Bureaucrat const & executor) const = 0;
