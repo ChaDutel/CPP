@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:47:57 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/05/15 12:24:28 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/15 14:26:37 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,11 @@ void	Convert::printExc(const char *c, const char *i, const char *f, const char *
 
 void	Convert::printResult(char c, int i, float f, double d)
 {
+	double	diff = d - i;
+	
 	if (d > 2147483647 || d < -2147483648)
 		std::cout << std::fixed << std::setprecision(1) << "char: impossible" << "\nint: impossible" << "\nfloat: " << f << "f\ndouble: " << d << std::endl;
-	else if (d > 127 || d < 0)
+	else if (d > 127 || d < 0 || diff != 0)
 		std::cout << std::fixed << std::setprecision(1) << "char: impossible" << "\nint: " << i << "\nfloat: " << f << "f\ndouble: " << d << std::endl;
 	else if (((c >= 0 && c <= 31) || c == 127) && (d == 127 || (d >= 0 && d <= 31)))
 		std::cout << std::fixed << std::setprecision(1) << "char: Non displayable" << "\nint: " << i << "\nfloat: " << f << "f\ndouble: " << d << std::endl;
@@ -161,6 +163,7 @@ int	Convert::isDouble(char *str)
 {
 	int i = 0;
 	int	j = 0;
+	int	k = 0;
 
 	while (str[i])
 	{
@@ -170,9 +173,11 @@ int	Convert::isDouble(char *str)
 			return (-1);
 		else if (str[i] == '.')
 			j++;
+		else if (str[i] >= '0' && str[i] <= '9')
+			k++;
 		i++;
 	}
-	if (j > 1)
+	if (j > 1 || k < 1)
 		return (-1);
 	return (0);
 }
@@ -182,6 +187,7 @@ int	Convert::isFloat(char *str)
 	int i = 0;
 	int	j = 0;
 	int	k = 0;
+	int	l = 0;
 
 	while (str[i])
 	{
@@ -191,12 +197,14 @@ int	Convert::isFloat(char *str)
 			return (-1);
 		else if (str[i] == '.')
 			j++;
-		else if (str[i] == 'f')
+		else if (str[i] >= '0' && str[i] <= '9')
 			k++;
+		else if (str[i] == 'f')
+			l++;
 		i++;
 	}
 	i--;
-	if (str[i] != 'f' || j > 1 || k != 1)
+	if (str[i] != 'f' || j > 1 || k < 1 || l != 1)
 		return (-1);
 	return (0);
 }
@@ -219,7 +227,7 @@ int    Convert::isInt(char *str)
 int	Convert::isInfNeg(std::string str)
 {
 	for (int i = 0; str[i]; i++)
-		std::tolower(str[i]);
+		str[i] = std::tolower(str[i]);
 	if (str == "-inf" || str == "-inff")
 		return (0);
 	return (-1);
@@ -228,7 +236,7 @@ int	Convert::isInfNeg(std::string str)
 int	Convert::isInfPos(std::string str)
 {
 	for (int i = 0; str[i]; i++)
-		std::tolower(str[i]);
+		str[i] = std::tolower(str[i]);
 	if (str == "+inf" || str == "+inff" || str == "inf" || str == "inff")
 		return (0);
 	return (-1);
