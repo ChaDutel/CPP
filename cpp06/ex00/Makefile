@@ -1,6 +1,6 @@
 #update on every project
 NAME := convert
-LST_SRC := main
+LST_SRC := main Convert
 #update to match c or cpp
 CC := c++
 FILE_EXT := .cpp
