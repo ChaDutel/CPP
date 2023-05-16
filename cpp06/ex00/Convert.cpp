@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:47:57 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/05/15 14:26:37 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/15 15:49:52 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,20 @@
 
 //----------------------------------------------------------------- BUILDERS -----------------------------------------------------------------//
 
-Convert::Convert() //:_str("")
+Convert::Convert()
 {
 }
 
-Convert::Convert(char *argv) : _str(argv)
+Convert::Convert(const Convert& other)
 {
-}
-
-Convert::Convert(const Convert& other) : _str(other._str)
-{
+	(void)other;
 }
 
 Convert& Convert::operator=(const Convert& other)
 {
-	this->_str = other._str;
+	(void)other;
 	return (*this);
 }
-
 
 Convert::~Convert()
 {
@@ -40,12 +36,6 @@ Convert::~Convert()
 
 
 //----------------------------------------------------------------- FUNCTIONS -----------------------------------------------------------------//
-
-
-char	*Convert::getStr() const
-{
-	return (this->_str);
-}
 
 /// PRINT AND CAST ///
 

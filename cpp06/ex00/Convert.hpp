@@ -7,23 +7,19 @@
 # include <limits>
 # include  <cstdlib>
 
-class	AForm;
-
 class Convert
 {
 	public:
 		Convert();
-		Convert(char *argv);
-		Convert(const Convert& other);
-		Convert&	operator=(const Convert& other);
 		~Convert();
 
-		char	*getStr() const;
 		int		findType(char *str);
 		void	printGoodType(int identifiedType, char *str);
 
 	private:
-		char	*_str;
+		Convert(const Convert& other);
+		Convert&	operator=(const Convert& other);
+
 		int		isInfPos(std::string str);
 		int		isInfNeg(std::string str);
 		int		isInt(char *str);
