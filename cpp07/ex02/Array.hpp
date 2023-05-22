@@ -23,7 +23,7 @@ class Array
 			{
 				_array = new T[_size];
 				
-				for (int i = 0; _array[i]; i++)
+				for (unsigned int i = 0; i != _size; i++)
 					_array[i] = T();
 			}
 		}
@@ -31,11 +31,10 @@ class Array
 		Array(const Array &src)
 		{
 			this->_size = src._size;
-			// this->_array = src._array;
 			if (_size != 0)
 			{
-				this->_array = new T(_size);
-				for (int i = 0; _array[i]; i++)
+				this->_array = new T[_size];
+				for (unsigned int i = 0; i != _size; i++)
 					this->_array[i] = src._array[i];
 			}
 		}
@@ -68,10 +67,10 @@ class Array
 
 		~Array()
 		{
-			delete	_array;
+			delete[]	_array;
 		}
 
-		unsigned int size()
+		unsigned int size() const
 		{
 			return (_size);
 		}
