@@ -18,7 +18,7 @@ void	iter(T tab[], unsigned int size, void(*ftPrint)(T &elem))
 	cpTab = tab;
 	std::cout << "Copy tab is: " << cpTab << ", and the original tab is: " << tab << std::endl;
 	std:: cout << "The size of the tab is: " << size << std::endl;
-	for (int i = 0; tab[i]; i++)
+	for (unsigned int i = 0; i < size; i++)
 	{
 		ftPrint(tab[i]);
 	}

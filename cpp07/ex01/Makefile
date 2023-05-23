@@ -1,5 +1,5 @@
 #update on every project
-NAME := FtTemplate
+NAME := Iter
 LST_SRC := main
 
 #update to match c or cpp
