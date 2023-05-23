@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:08:21 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/05/23 19:26:31 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/05/23 19:32:39 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		Span::shortestSpan()
 	if (_nMax <= 1)
 		throw std::length_error("Error : Can't find the shortest distance between two numbers because there are less than two numbers added");
 
+	std::sort(_tab.begin(), _tab.end());
 	int	short_value = 2147483647;
 	int	j;
 	for (unsigned long i = 0; (i + 1) < _tab.size(); ++i)
@@ -62,8 +63,8 @@ int		Span::longestSpan()
 {
 	if (_nMax <= 1)
 		throw std::length_error("Error : Can't find the longest distance between two numbers because there are less than two numbers added");
-	// std::cout << _tab.end() - 1 << std::endl;
-	return ((_tab.end() - 1) - _tab.begin());
+	std::sort(_tab.begin(), _tab.end());
+	return ((_tab.back()) - _tab.front());
 }
 
 void	Span::addNumber(int nb)
@@ -71,7 +72,6 @@ void	Span::addNumber(int nb)
 	if (_nMaxLeft != 0)
 	{
 		_tab.push_back(nb);
-		std::sort(_tab.begin(), _tab.end());
 		--_nMaxLeft;
 	}
 }
