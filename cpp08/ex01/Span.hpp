@@ -20,7 +20,7 @@ class Span
 		void	addNumber(int nb);
 
 	private:
-		int					_nMax;
+		int					_nAdded;
 		int					_nMaxLeft;
 		std::vector<int> 	_tab;
 };
