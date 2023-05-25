@@ -2,10 +2,8 @@
 # define MUTANTSTACK_HPP
 
 # include <iostream>
-# include <vector>
-# include <exception>
-# include <algorithm>
 # include <stack>
+# include <string>
 
 template <typename T>
 class MutantStack : public std::stack<T>
@@ -43,35 +41,5 @@ class MutantStack : public std::stack<T>
 			return (this->c.end());
 		}
 };
-
-
-// template<typename T>
-// class MutantStack : public std::stack<T>
-// {
-// 	public:
-// 		typedef typename std::stack<T>::container_type::iterator iterator;
-
-// 		MutantStack() : std::stack<T>() {}
-// 		MutantStack(const MutantStack<T>& other) : std::stack<T>(other) {}
-// 		virtual ~MutantStack() {}
-
-// 		MutantStack<T>& operator=(const MutantStack<T>& other)
-// 		{
-// 			if (this != &other) {
-// 				this->c = other.c;
-// 			}
-// 			return *this;
-// 		}
-
-// 		iterator begin()
-// 		{
-// 			return this->c.begin();
-// 		}
-
-// 		iterator end()
-// 		{
-// 			return this->c.end();
-// 		}
-// };
 
 # endif
