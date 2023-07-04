@@ -5,10 +5,6 @@
 # include <iostream>
 # include <fstream>
 # include <map>
-// # include <iomanip>
-// # include <string>
-// # include <limits>
-// # include  <cstdlib>
 
 class BitcoinExchange
 {
@@ -16,12 +12,15 @@ class BitcoinExchange
 		BitcoinExchange(std::ifstream &file);
 		~BitcoinExchange();
 
-        std::map<std::string, double> const&	getBitcoinExchange() const;
+        std::map<std::string, double> const&	getDataMap() const;
 		int		parse(std::string str);
-		int		findYear(std::string str, int i, std::string line);
+		void	findYear(std::string str, int i, std::string line);
 		int		findMonth(std::string str, int i, std::string line);
-		int		findDay(std::string str, int i, std::string line, int month);
-		double	findValue(std::string str, int i, std::string line);
+		void	findDay(std::string str, int i, std::string line, int month);
+		void	findValue(std::string str, int i, std::string line);
+
+		void	exec(std::string date, double value);
+		void	printResult(std::string date, double valueExec, double resValue);
 
 		// utils //
 		int	isDigit(char c);
@@ -35,12 +34,12 @@ class BitcoinExchange
         std::map<std::string, double>	data;
 };
 
-// class	GenericException 				: public std::exception {public: virtual char const*	what() const throw();};
 class	LineTooShortException 				: public std::exception {public: virtual char const*	what() const throw();};
 class	WrongSyntaxException 				: public std::exception {public: virtual char const*	what() const throw();};
 class	NotANumberException 				: public std::exception {public: virtual char const*	what() const throw();};
 class	MissArgumentException 				: public std::exception {public: virtual char const*	what() const throw();};
 class	WrongDateException 				    : public std::exception {public: virtual char const*	what() const throw();};
 class	TooLargeNumberException 			: public std::exception {public: virtual char const*	what() const throw();};
+class	UpperThousandNumberException 		: public std::exception {public: virtual char const*	what() const throw();};
 
 # endif

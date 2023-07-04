@@ -6,7 +6,7 @@
 /*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 11:45:12 by charline          #+#    #+#             */
-/*   Updated: 2023/07/04 14:38:21 by charline         ###   ########.fr       */
+/*   Updated: 2023/07/04 18:54:28 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ int main(int argc, char **argv)
     }
 	BitcoinExchange bitc(dataFd);
 	dataFd.close();
-	// for (int i = 0; argv[1][i]; i++)
-	// {
-	// 	if (parse(argv[1][i]) == -1)
-	// 		return (0);
-	// }
 
     std::ifstream inputFd(argv[1]);
     
@@ -41,18 +36,15 @@ int main(int argc, char **argv)
         std::cout << "ERROR : Error with the " << argv[1] << " file" << std::endl;
         return (0);
     }
-    
-    
+
     std::string	line;
 	while (std::getline(inputFd, line, '\n'))
 	{
 		if (line == "date | value")
 			continue;
         if (bitc.parse(line) == -1)
-            return (0);
-		// this->data[line.substr(0, 10)] = std::atof(line.substr(11).c_str());
-		// if (line == "2009-01-02,999lp")
-		// 	std::cout << line.substr(0, 10) << " " << std::atof(line.substr(11).c_str()) << std::endl;
+            continue;
+        bitc.exec(line.substr(0, 10), std::atof(line.substr(13).c_str()));
 	}
 	inputFd.close();
     return (0);
