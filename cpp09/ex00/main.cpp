@@ -6,7 +6,7 @@
 /*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 11:45:12 by charline          #+#    #+#             */
-/*   Updated: 2023/07/05 15:02:51 by charline         ###   ########.fr       */
+/*   Updated: 2023/07/05 17:13:56 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 {
     if (argc != 2)
     {
-        std::cout << "ERROR : Wrong number of arguments";
+        std::cout << "ERROR : Wrong number of arguments" << std::endl;
         return (0);
     }
     std::ifstream dataFd("data.csv");

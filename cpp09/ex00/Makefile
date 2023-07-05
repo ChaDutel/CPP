@@ -1,5 +1,5 @@
 #update on every project
-NAME := Btc
+NAME := btc
 LST_SRC := main BitcoinExchange
 
 #update to match c or cpp
