@@ -6,7 +6,7 @@
 /*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 11:45:12 by charline          #+#    #+#             */
-/*   Updated: 2023/07/04 18:54:28 by charline         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:02:51 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,15 @@ int main(int argc, char **argv)
         return (0);
     }
 
+    bool    isFirstLine = true;
     std::string	line;
 	while (std::getline(inputFd, line, '\n'))
 	{
-		if (line == "date | value")
+		if (line == "date | value" && isFirstLine == true)
+        {
+            isFirstLine = false;
 			continue;
+        }
         if (bitc.parse(line) == -1)
             continue;
         bitc.exec(line.substr(0, 10), std::atof(line.substr(13).c_str()));

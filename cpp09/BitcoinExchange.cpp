@@ -6,7 +6,7 @@
 /*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 11:45:45 by charline          #+#    #+#             */
-/*   Updated: 2023/07/04 19:00:07 by charline         ###   ########.fr       */
+/*   Updated: 2023/07/05 14:47:10 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,23 +116,23 @@ int	BitcoinExchange::isDigit(char c)
 	return (0);
 }
 
-void	BitcoinExchange::findValue(std::string str, int i, std::string line)
+void	BitcoinExchange::findValue(std::string str, int pos, std::string line)
 {
 	bool    point = false;
 	int j = 0;
-	while (str[i])
+	while (str[pos])
 	{
-		if (isDigit(str[i]) == -1)
+		if (isDigit(str[pos]) == -1)
 		{
-			if (str[i] == '.' && point == false)
+			if (str[pos] == '.' && point == false)
 				point = true;
 			else
 				throw NotANumberException();
 		}
 		if (j > 10)
 			throw TooLargeNumberException();
-		line += str[i];
-		i++;
+		line += str[pos];
+		pos++;
 		j++;
 	}
 	double res = std::atof(line.c_str());
@@ -141,19 +141,19 @@ void	BitcoinExchange::findValue(std::string str, int i, std::string line)
 	return ;
 }
 
-void	BitcoinExchange::findDay(std::string str, int i, std::string line, int month)
+void	BitcoinExchange::findDay(std::string str, int pos, std::string line, int month)
 {
-	while (str[i] && i < 10)
+	while (str[pos] && pos< 10)
 	{
-		if (isDigit(str[i]) == -1)
+		if (isDigit(str[pos]) == -1)
 			throw NotANumberException();
-		line += str[i];
-		i++;
+		line += str[pos];
+		pos++;
 	}
-	if (i != 10)
+	if (pos!= 10)
 		throw MissArgumentException();
 	int res = std::atoi(line.c_str());
-	if (validDate(i, 1, 31) == -1)
+	if (validDate(pos, 1, 31) == -1)
 		throw WrongDateException();
 	if ((month == 4 || month == 6 || month == 9 || month == 11) && res == 31)
 		throw WrongDateException();
@@ -161,23 +161,23 @@ void	BitcoinExchange::findDay(std::string str, int i, std::string line, int mont
 	{
 		if (res > 28)
 			throw WrongDateException();
-		// if (i == 29 && year/4) // bisex to do
+		// if (pos== 29 && year/4) // bisex to do
 		// else
 		//     return (-1);
 	}
 	return ;
 }
 
-int	BitcoinExchange::findMonth(std::string str, int i, std::string line)
+int	BitcoinExchange::findMonth(std::string str, int pos, std::string line)
 {
-	while (str[i] && i < 7)
+	while (str[pos] && pos< 7)
 	{
-		if (isDigit(str[i]) == -1)
+		if (isDigit(str[pos]) == -1)
 			throw NotANumberException();
-		line += str[i];
-		i++;
+		line += str[pos];
+		pos++;
 	}
-	if (i != 7)
+	if (pos!= 7)
 		throw MissArgumentException();
 	int res = std::atoi(line.c_str());
 	if (validDate(res, 1, 12) == -1)
@@ -185,16 +185,16 @@ int	BitcoinExchange::findMonth(std::string str, int i, std::string line)
 	return (res);
 }
 
-void	BitcoinExchange::findYear(std::string str, int i, std::string line)
+void	BitcoinExchange::findYear(std::string str, int pos, std::string line)
 {
-	while (str[i] && i < 4)
+	while (str[pos] && pos< 4)
 	{
-		if (isDigit(str[i]) == -1)
+		if (isDigit(str[pos]) == -1)
 			throw NotANumberException();
-		line += str[i];
-		i++;
+		line += str[pos];
+		pos++;
 	}
-	if (i != 4)
+	if (pos!= 4)
 		throw MissArgumentException();
 	int res = std::atoi(line.c_str());
 	if (validDate(res, 2000, -1) == -1)
