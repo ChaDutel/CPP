@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 10:20:13 by cdutel-l          #+#    #+#             */
-/*   Updated: 2023/05/16 11:14:22 by cdutel-l         ###   ########lyon.fr   */
+/*   Updated: 2023/07/10 17:49:08 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,3 @@ int	main()
 	identify(*base);
 	delete base;
 }
-
-// void identify(Base& p);
-// Elle affiche le véritable type de l’objet pointé par p : "A", "B" ou "C". Utiliser un pointeur
-// dans cette fonction est interdit.

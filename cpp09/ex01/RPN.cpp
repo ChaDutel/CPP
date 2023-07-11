@@ -6,7 +6,7 @@
 /*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:18:48 by charline          #+#    #+#             */
-/*   Updated: 2023/07/05 18:16:04 by charline         ###   ########.fr       */
+/*   Updated: 2023/07/05 18:28:58 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,10 +124,7 @@ void	RPN::parse(std::string str)
 		if (isDigit(str[i]) == false)
 		{
 			if (isOperator(str[i]) == false && str[i] != ' ')
-			{
-				std::cout << str[i] << std::endl;
 				throw WrongSyntaxException();
-			}
 			if (str[i] != ' ')
 				countOp++;
 		}
