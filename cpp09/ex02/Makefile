@@ -1,6 +1,6 @@
 #update on every project
 NAME := PmergeMe
-LST_SRC := main #PmergeMe
+LST_SRC := main PmergeMe
 
 #update to match c or cpp
 CC := c++

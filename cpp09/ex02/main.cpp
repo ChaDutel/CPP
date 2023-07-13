@@ -6,7 +6,7 @@
 /*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:18:40 by charline          #+#    #+#             */
-/*   Updated: 2023/07/10 18:01:46 by charline         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:50:38 by charline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,12 +182,12 @@ int main(int argc, char **argv)
 			pmergeMe.parse(argv[i]);
 		std::list<int>		li;
 		std::vector<int>	vec;
-		for (int i = 0; argv[i]; i++)
+		for (int i = 1; argv[i]; i++) //i = 1
 		{
 			li.push_back(std::atoi(argv[i]));
 			vec.push_back(std::atoi(argv[i]));
 		}
-		pmergeMe.execLi(li);
+		// pmergeMe.execLi(li);
 		pmergeMe.execVec(vec);
 	}
 	catch(const std::exception& e)

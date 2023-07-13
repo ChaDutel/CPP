@@ -15,16 +15,16 @@ class PmergeMe
 		~PmergeMe();
 
 		// getters and setters
-		std::stack<double> 	getNbStack();
-		void 				addNb(double nb);
-		double				removeNb();
+		// std::stack<double> 	getNbStack();
+		// void 				addNb(double nb);
+		// double				removeNb();
 
 		// parsing
 		void    parse(std::string str);
 
 		// execution
-		void	PmergeMe::execLi(std::list<int> li);
-		void	PmergeMe::execVec(std::vector<int> vec);
+		// void	execLi(std::list<int> li);
+		void	execVec(std::vector<int> vec);
 
 		// utils
 		bool	isDigit(char c);
@@ -34,7 +34,7 @@ class PmergeMe
 		PmergeMe(const PmergeMe& other);
 		PmergeMe&	operator=(const PmergeMe& other);
 
-		std::stack<double> nbStack;
+		// std::stack<double> nbStack;
 };
 
 class	TooMuchNbException					: public std::exception {public: virtual char const*	what() const throw();};
