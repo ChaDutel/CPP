@@ -64,7 +64,7 @@ int main(int argc, char **argv)
 			std:: cout << "Time to process a range of " << li.size() << " elements with std::list   : 0.0 us" << std::endl;
 			return (0);
 		}
-		std::cout << "Before:  ";
+		std::cout << "Before: ";
 		for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;

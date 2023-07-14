@@ -4,6 +4,7 @@
 # include <exception>
 # include <iostream>
 # include <iomanip>
+# include <cstdlib>
 # include <ctime>
 # include <list>
 # include <vector>
@@ -12,23 +13,22 @@ class PmergeMe
 {
 	public:
 		PmergeMe();
-		// PmergeMe(/**/);
 		~PmergeMe();
 
 		// parsing
-		void    parse(std::string str);
+		void   				parse(std::string str);
 
 		// execution
 		std::vector<int>	execVec(std::vector<int> vec);
-		void	addElemVect(std::vector<int> &chain, int value);
-		int		binaryFindVect(std::vector<int> vec, int l, int r, int x);
+		void				addElemVect(std::vector<int> &chain, int value);
+		int					binaryFindVect(std::vector<int> vec, int l, int r, int x);
 
-		void	execLi(std::list<int> li);
-		void	addElemLi(std::list<int> &chain, int value);
-		int		binaryFindLi(std::list<int> li, int l, int r, int x);
+		void				execLi(std::list<int> li);
+		void				addElemLi(std::list<int> &chain, int value);
+		int					binaryFindLi(std::list<int> li, int l, int r, int x);
 
 		// utils
-		bool	isDigit(char c);
+		bool				isDigit(char c);
 
 	private:
 		PmergeMe(const PmergeMe& other);

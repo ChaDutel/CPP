@@ -66,13 +66,10 @@ int PmergeMe::binaryFindVect(std::vector<int> vec, int l, int r, int x)
 		return mid;
 	else if (r - l == 1)
 		return (r);
-	// If element is smaller than mid, then
-	// it can only be present in left subarray
+	// element present in left subarray
 	else if (vec[mid] > x)
 		return binaryFindVect(vec, l, mid, x);
-
-	// Else the element can only be present
-	// in right subarray
+	// else, element only present in right subarray
 	return binaryFindVect(vec, mid, r, x);
 }
 
@@ -145,19 +142,14 @@ int PmergeMe::binaryFindLi(std::list<int> li, int l, int r, int x)
 	std::list<int>::iterator	it = li.begin();
 	for (int i = 0; i < mid; i++)
 		++it;
-	// If the element is present at the middle
-	// itself
 	if (*it == x)
 		return mid;
 	else if (r - l == 1)
 		return (r);
-	// If element is smaller than mid, then
-	// it can only be present in left subarray
+	// element present in left subarray
 	else if (*it > x)
 		return binaryFindLi(li, l, mid, x);
-
-	// Else the element can only be present
-	// in right subarray
+	// else, element only present in right subarray
 	return binaryFindLi(li, mid, r, x);
 }
 
@@ -235,8 +227,8 @@ void	PmergeMe::parse(std::string str)
 	{
 		if (isDigit(str[i]) == false)
 			throw WrongSyntaxException();
-		max += std::atof(&str[i]);
-		if (max > INT_MAX)
-			throw IntMaxException();
 	}
+	max = std::atof(str.c_str());
+	if (max > 2147483647)
+		throw IntMaxException();
 }
