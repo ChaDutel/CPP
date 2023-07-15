@@ -3,6 +3,7 @@
 
 # include <exception>
 # include <iostream>
+# include <cstdlib>
 # include <fstream>
 # include <map>
 
@@ -23,8 +24,8 @@ class BitcoinExchange
 		void	printResult(std::string date, double valueExec, double resValue);
 
 		// utils //
-		int	isDigit(char c);
-		int	validDate(int nb, int min, int max);
+		int		isDigit(char c);
+		int		validDate(int nb, int min, int max);
 
 	private:
 		BitcoinExchange();

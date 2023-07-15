@@ -3,13 +3,13 @@
 
 # include <exception>
 # include <iostream>
+# include <cstdlib>
 # include <stack>
 
 class RPN
 {
 	public:
 		RPN();
-		// RPN(/**/);
 		~RPN();
 
 		// getters and setters
@@ -18,14 +18,14 @@ class RPN
 		double				removeNb();
 
 		// parsing
-		void    parse(std::string str);
+		void    			parse(std::string str);
 
 		// execution
-		void	exec(char c);
+		void				exec(char c);
 
 		// utils
-		bool	isDigit(char c);
-		bool	isOperator(char c);
+		bool				isDigit(char c);
+		bool				isOperator(char c);
 
 	private:
 		RPN(const RPN& other);
