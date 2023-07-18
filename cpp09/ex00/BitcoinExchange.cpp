@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 11:45:45 by charline          #+#    #+#             */
-/*   Updated: 2023/07/05 14:47:10 by charline         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:00:02 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,13 +157,10 @@ void	BitcoinExchange::findDay(std::string str, int pos, std::string line, int mo
 		throw WrongDateException();
 	if ((month == 4 || month == 6 || month == 9 || month == 11) && res == 31)
 		throw WrongDateException();
-	else if (month == 02) // bisex
+	else if (month == 02)
 	{
 		if (res > 28)
 			throw WrongDateException();
-		// if (pos== 29 && year/4) // bisex to do
-		// else
-		//     return (-1);
 	}
 	return ;
 }

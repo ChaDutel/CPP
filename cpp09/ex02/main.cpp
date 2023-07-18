@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charline <charline@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cdutel-l <cdutel-l@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:18:40 by charline          #+#    #+#             */
-/*   Updated: 2023/07/13 16:36:57 by charline         ###   ########.fr       */
+/*   Updated: 2023/07/18 17:58:47 by cdutel-l         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 bool	checkIsSortedVect(std::vector<int> vec)
 {
-	size_t i = 0;
-	while (vec[i])
+	std::vector<int>::iterator	itPrev = vec.begin();
+	std::vector<int>::iterator	itNext = vec.begin() + 1;
+	while (itPrev != vec.end() && itNext != vec.end())
 	{
-		int	j = i + 1;
-		if (vec[j])
-		{
-			if (vec[i] > vec[j])
-				break;
-		}
-		i++;
+		if (*itPrev > *itNext)
+			break ;
+		itPrev++;
+		itNext++;
 	}
-	if (i == vec.size())
+	if (itNext == vec.end())
 	{
 		std::cout << "Before: ";
 		for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
 			std::cout << *it << " ";
 		std::cout << "\nAfter:  ";
 		for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
-		std::cout << *it << " ";
+			std::cout << *it << " ";
 		std::cout << std::endl;
 		return true;
 	}
